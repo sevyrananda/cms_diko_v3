@@ -17,10 +17,6 @@
                 <a href="{{ route('create') }}" class="nav-link"><i data-feather="share"></i><span>Create
                         Post</span></a>
             </li>
-            <li class="dropdown">
-                <a href="" class="nav-link"><i data-feather="eye"></i><span>Preview</span></a>
-            </li>
-
         </ul>
     </aside>
 </div>
