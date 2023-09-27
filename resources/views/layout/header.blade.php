@@ -142,7 +142,7 @@
                 <div class="dropdown-divider"></div>
                 <form action="{{ route('logout') }}" method="POST">
                   @csrf
-                  @method('DELETE') <!-- Add this line to override the form method -->
+                  @method('DELETE')
                   <button type="submit" class="dropdown-item has-icon text-danger">
                     <i class="fas fa-sign-out-alt" style="margin-top: 10px;"></i> Logout
                   </button>

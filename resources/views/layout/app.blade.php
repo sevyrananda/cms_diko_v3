@@ -42,6 +42,7 @@
   <script src="{{url('otika')}}/assets/js/scripts.js"></script>
   <!-- Custom JS File -->
   <script src="{{url('otika')}}/assets/js/custom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 
 

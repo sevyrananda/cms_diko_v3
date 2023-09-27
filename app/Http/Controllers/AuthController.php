@@ -40,7 +40,7 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($credentials)) {
-            return redirect('/admin')->with('success', 'Login Berhasil');
+            return redirect('/home')->with('success', 'Login Berhasil');
         }
 
         return back()->with('error', 'Email or Password salah');
@@ -51,5 +51,10 @@ class AuthController extends Controller
         Auth::logout();
 
         return redirect()->route('login');
+    }
+
+    public function setelahLogin()
+    {
+        return view('home');
     }
 }

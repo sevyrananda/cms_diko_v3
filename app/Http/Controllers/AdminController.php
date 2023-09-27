@@ -11,13 +11,4 @@ class AdminController extends Controller
         return view('admin');
     }
 
-    public function post()
-    {
-        return view('pages.post');
-    }
-
-    public function listPost()
-    {
-        return view('pages.listPost');
-    }
 }

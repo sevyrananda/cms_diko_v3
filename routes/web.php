@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +25,14 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
 Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
-Route::get('/post', [AdminController::class, 'post'])->name('post');
+Route::get('/home', [AuthController::class, 'setelahLogin'])->name('home');
 
-Route::get('/listpost', [AdminController::class, 'listPost'])->name('listPost');
+Route::get('/list', [PostController::class, 'index'])->name('list');
+Route::get('/create', [PostController::class, 'create'])->name('create');
+Route::post('/store', [PostController::class, 'store'])->name('store');
+Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('destroy');
+Route::get('/edit/{id}', [PostController::class, 'edit'])->name('edit');
+Route::put('/update/{id}', [PostController::class, 'update'])->name('update');
+Route::get('/preview/{id}', [PostController::class, 'preview'])->name('preview');
+
+
