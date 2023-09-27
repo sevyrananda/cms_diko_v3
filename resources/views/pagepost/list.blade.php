@@ -71,6 +71,7 @@
                                                 <th>Author</th>
                                                 <th>Title</th>
                                                 <th>Category</th>
+                                                <th>Content</th>
                                                 <th>Image</th>
                                                 <th>Status</th>
                                                 <th>Aksi</th>
@@ -86,6 +87,7 @@
                                                     <td>{{ $post->author_name }}</td>
                                                     <td>{{ $post->title }}</td>
                                                     <td>{{ $post->category }}</td>
+                                                    <td>{{ $post->content }}</td>
                                                     <td>
                                                         @if ($post->image)
                                                             <img src="{{ asset('storage/' . $post->image) }}" alt="Image"

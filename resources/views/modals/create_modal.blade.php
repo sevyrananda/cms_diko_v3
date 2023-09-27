@@ -23,7 +23,11 @@
                     </div>
                     <div class="form-group">
                         <label for="category">Category</label>
-                        <input type="text" class="form-control" id="category" name="category" required>
+                        <select class="form-control" id="category" name="category" required>
+                            <option value="News">News</option>
+                            <option value="Info">Info</option>
+                            <option value="Techonlogy">Technology</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="content">Content</label>
@@ -36,8 +40,9 @@
                     <div class="form-group">
                         <label for="status">Status</label>
                         <select class="form-control" id="status" name="status" required>
-                            <option value="published">Published</option>
-                            <option value="draft">Draft</option>
+                            <option value="Published">Published</option>
+                            <option value="Draft">Draft</option>
+                            <option value="Pending">Pending</option>
                         </select>
                     </div>
                     <div class="modal-footer">

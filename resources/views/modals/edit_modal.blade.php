@@ -23,11 +23,15 @@
                     </div>
                     <div class="form-group">
                         <label for="edit_category">Category</label>
-                        <input type="text" class="form-control" id="edit_category" name="edit_category" value="{{ $post->category }}">
+                        <select class="form-control" id="edit_category" name="edit_category">
+                            <option value="News" {{ $post->category == 'news' ? 'selected' : '' }}>News</option>
+                            <option value="Info" {{ $post->category == 'info' ? 'selected' : '' }}>Info</option>
+                            <option value="Technology" {{ $post->category == 'technology' ? 'selected' : '' }}>Technology</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="edit_content">Content</label>
-                        <input type="text" class="form-control" id="edit_content" name="edit_content" value="{{ $post->content }}">
+                        <textarea class="form-control" id="edit_content" name="edit_content">{{ $post->content }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="edit_image">Image</label>
@@ -41,13 +45,12 @@
                             No Image
                         @endif
                     </div>
-
                     <div class="form-group">
                         <label for="edit_status">Status</label>
                         <select class="form-control" id="edit_status" name="edit_status">
-                            <option value="published" {{ $post->status == 'published' ? 'selected' : '' }}>Published</option>
-                            <option value="draft" {{ $post->status == 'draft' ? 'selected' : '' }}>Draft</option>
-                            <option value="pending" {{ $post->status == 'pending' ? 'selected' : '' }}>Pending</option>
+                            <option value="Published" {{ $post->status == 'published' ? 'selected' : '' }}>Published</option>
+                            <option value="Draft" {{ $post->status == 'draft' ? 'selected' : '' }}>Draft</option>
+                            <option value="Pending" {{ $post->status == 'pending' ? 'selected' : '' }}>Pending</option>
                         </select>
                     </div>
                 </div>
