@@ -11,15 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('post', function (Blueprint $table) {
-            $table->char('id',7);
-            $table->string('author_name',100);
-            $table->string('title',100);
-            $table->string('category',50);
-            $table->string('content',255);
-            $table->string('image')->nullable();
-            $table->string('status',100);
-
+        Schema::create('fitur_pos', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
         });
     }
@@ -29,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('post');
+        Schema::dropIfExists('fitur_pos');
     }
 };

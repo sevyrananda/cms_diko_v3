@@ -2,27 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FiturLanding;
 use Illuminate\Http\Request;
-use App\Models\Post;
 
-class PostController extends Controller
+
+class FiturLandingController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $posts = Post::get();
-        return view('pagepost.list', compact('posts'));
+        $posts = FiturLanding::get();
+        return view('pages.landing.fitur.list', compact('posts'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        return view('pagepost.create');
-    }
+    // public function create()
+    // {
+    //     return view('landing.fitur.create');
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -31,27 +32,20 @@ class PostController extends Controller
     {
         // Validasi data
         $validatedData = $request->validate([
-            'author_name' => 'required',
-            'title' => 'required',
-            'category' => 'required',
-            'content' => 'required',
+            'judul' => 'required',
+            'isi' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'status' => 'required',
         ]);
 
-        $post = new Post;
-        $post->author_name = $request->input('author_name');
-        $post->title = $request->input('title');
-        $post->category = $request->input('category');
-        $post->content = $request->input('content');
+        $post = new FiturLanding();
+        $post->judul = $request->input('judul');
+        $post->isi = $request->input('isi');
 
         // Upload dan simpan gambar jika ada
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('public');
             $post->image = str_replace('public/', '', $imagePath);
         }
-
-        $post->status = $request->input('status');
 
         $post->save();
 
@@ -63,14 +57,14 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::all();
-        return view('pagepost.list', compact('post'));
+        $post = FiturLanding::all();
+        return view('pages.landing.fitur.list', compact('post'));
     }
 
     public function preview($id)
     {
-        $post = Post::find($id);
-        return view('pagepost.preview', compact('post'));
+        $post = FiturLanding::find($id);
+        return view('pages.landing.fitur.preview', compact('post'));
     }
 
     /**
@@ -78,8 +72,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
-        return view('pagepost.edit', compact('post'));
+        $post = FiturLanding::find($id);
+        return view('pages.landing.fitur.edit', compact('post'));
     }
 
     /**
@@ -89,30 +83,23 @@ class PostController extends Controller
     {
         // Validasi data
         $validatedData = $request->validate([
-            'edit_author_name' => 'required',
-            'edit_title' => 'required',
-            'edit_category' => 'required',
-            'edit_content' => 'required',
+            'edit_judul' => 'required',
+            'edit_isi' => 'required',
             'edit_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'edit_status' => 'required',
         ]);
 
         // Temukan data post berdasarkan ID
-        $post = Post::find($id);
+        $post = FiturLanding::find($id);
 
         // Perbarui data post berdasarkan data yang dikirimkan
-        $post->author_name = $request->input('edit_author_name');
-        $post->title = $request->input('edit_title');
-        $post->category = $request->input('edit_category');
-        $post->content = $request->input('edit_content');
+        $post->judul = $request->input('edit_judul');
+        $post->isi = $request->input('edit_isi');
 
         // Upload dan simpan gambar jika ada
         if ($request->hasFile('edit_image')) {
             $imagePath = $request->file('edit_image')->store('public');
             $post->image = str_replace('public/', '', $imagePath);
         }
-
-        $post->status = $request->input('edit_status');
 
         $post->save();
 
@@ -124,7 +111,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
+        $post = FiturLanding::find($id);
         $post->delete();
 
         return redirect('/list')->with('success', 'Activity has been deleted.');

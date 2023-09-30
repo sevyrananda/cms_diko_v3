@@ -99,14 +99,14 @@
                     <a class="btn btn-block btn-social btn-twitter">
                       <span class="fab fa-twitter"></span> Twitter
                     </a>
-                  </div> 
+                  </div>
                 </div> -->
             </div>
           </div>
         </div>
-        <div class="mt-5 text-muted text-center">
+        {{-- <div class="mt-5 text-muted text-center">
           Don't have an account? <a href="{{ route('register') }}">Create One</a>
-        </div>
+        </div> --}}
       </div>
   </div>
   </div>

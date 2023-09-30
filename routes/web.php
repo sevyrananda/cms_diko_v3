@@ -2,7 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\FiturLandingController;
+use App\Http\Controllers\FiturPosController;
+use App\Http\Controllers\FiturSpController;
+use App\Http\Controllers\PricingPosController;
+use App\Http\Controllers\PricingSpController;
+use App\Http\Controllers\FaqLandingController;
+use App\Http\Controllers\FaqPosController;
+use App\Http\Controllers\FaqSpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,20 +26,86 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
+// Route::get('/register', [AuthController::class, 'register'])->name('register');
+// Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
 Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/home', [AuthController::class, 'setelahLogin'])->name('home');
 
-Route::get('/list', [PostController::class, 'index'])->name('list');
-Route::get('/create', [PostController::class, 'create'])->name('create');
-Route::post('/store', [PostController::class, 'store'])->name('store');
-Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('destroy');
-Route::get('/edit/{id}', [PostController::class, 'edit'])->name('edit');
-Route::put('/update/{id}', [PostController::class, 'update'])->name('update');
-Route::get('/preview/{id}', [PostController::class, 'preview'])->name('preview');
+//Landing Page - Fitur
+Route::get('/fitur', [FiturLandingController::class, 'index'])->name('fitur');
+Route::post('/store', [FiturLandingController::class, 'store'])->name('store');
+Route::delete('/posts/{id}', [FiturLandingController::class, 'destroy'])->name('destroy');
+Route::get('/edit/{id}', [FiturLandingController::class, 'edit'])->name('edit');
+Route::put('/update/{id}', [FiturLandingController::class, 'update'])->name('update');
+Route::get('/preview/{id}', [FiturLandingController::class, 'preview'])->name('preview');
+
+//Landing Page - Pricing
+Route::get('/pricing', [PricingLandingController::class, 'index'])->name('pricing');
+// Route::post('/store', [FiturLandingController::class, 'store'])->name('store');
+// Route::delete('/posts/{id}', [FiturLandingController::class, 'destroy'])->name('destroy');
+// Route::get('/edit/{id}', [FiturLandingController::class, 'edit'])->name('edit');
+// Route::put('/update/{id}', [FiturLandingController::class, 'update'])->name('update');
+// Route::get('/preview/{id}', [FiturLandingController::class, 'preview'])->name('preview');
+
+//Landing Page - Faq
+Route::get('/faq', [FaqLandingController::class, 'index'])->name('faq');
+// Route::post('/store', [FiturLandingController::class, 'store'])->name('store');
+// Route::delete('/posts/{id}', [FiturLandingController::class, 'destroy'])->name('destroy');
+// Route::get('/edit/{id}', [FiturLandingController::class, 'edit'])->name('edit');
+// Route::put('/update/{id}', [FiturLandingController::class, 'update'])->name('update');
+// Route::get('/preview/{id}', [FiturLandingController::class, 'preview'])->name('preview');
+
+
+//DIKO POS - Fitur
+Route::get('/pos/fitur/list', [FiturPosController::class, 'index'])->name('posFitur');
+// Route::post('/store', [FiturLandingController::class, 'store'])->name('store');
+// Route::delete('/posts/{id}', [FiturLandingController::class, 'destroy'])->name('destroy');
+// Route::get('/edit/{id}', [FiturLandingController::class, 'edit'])->name('edit');
+// Route::put('/update/{id}', [FiturLandingController::class, 'update'])->name('update');
+// Route::get('/preview/{id}', [FiturLandingController::class, 'preview'])->name('preview');
+
+//DIKO POS - Pricing
+Route::get('/pos/pricing/list', [PricingPosController::class, 'index'])->name('posPricing');
+// Route::post('/store', [FiturLandingController::class, 'store'])->name('store');
+// Route::delete('/posts/{id}', [FiturLandingController::class, 'destroy'])->name('destroy');
+// Route::get('/edit/{id}', [FiturLandingController::class, 'edit'])->name('edit');
+// Route::put('/update/{id}', [FiturLandingController::class, 'update'])->name('update');
+// Route::get('/preview/{id}', [FiturLandingController::class, 'preview'])->name('preview');
+
+//DIKO POS - Faq
+Route::get('/pos/faq/list', [FaqPosController::class, 'index'])->name('posFaq');
+// Route::post('/store', [FiturLandingController::class, 'store'])->name('store');
+// Route::delete('/posts/{id}', [FiturLandingController::class, 'destroy'])->name('destroy');
+// Route::get('/edit/{id}', [FiturLandingController::class, 'edit'])->name('edit');
+// Route::put('/update/{id}', [FiturLandingController::class, 'update'])->name('update');
+// Route::get('/preview/{id}', [FiturLandingController::class, 'preview'])->name('preview');
+
+
+//DIKO SP - Fitur
+Route::get('/sp/fitur/list', [FiturSpController::class, 'index'])->name('spFitur');
+// Route::post('/store', [FiturLandingController::class, 'store'])->name('store');
+// Route::delete('/posts/{id}', [FiturLandingController::class, 'destroy'])->name('destroy');
+// Route::get('/edit/{id}', [FiturLandingController::class, 'edit'])->name('edit');
+// Route::put('/update/{id}', [FiturLandingController::class, 'update'])->name('update');
+// Route::get('/preview/{id}', [FiturLandingController::class, 'preview'])->name('preview');
+
+//DIKO SP - Pricing
+Route::get('/sp/pricing/list', [PricingSpController::class, 'index'])->name('spPricing');
+// Route::post('/store', [FiturLandingController::class, 'store'])->name('store');
+// Route::delete('/posts/{id}', [FiturLandingController::class, 'destroy'])->name('destroy');
+// Route::get('/edit/{id}', [FiturLandingController::class, 'edit'])->name('edit');
+// Route::put('/update/{id}', [FiturLandingController::class, 'update'])->name('update');
+// Route::get('/preview/{id}', [FiturLandingController::class, 'preview'])->name('preview');
+
+//DIKO SP - Faq
+Route::get('/sp/faq/list', [FaqSpController::class, 'index'])->name('spFaq');
+// Route::post('/store', [FiturLandingController::class, 'store'])->name('store');
+// Route::delete('/posts/{id}', [FiturLandingController::class, 'destroy'])->name('destroy');
+// Route::get('/edit/{id}', [FiturLandingController::class, 'edit'])->name('edit');
+// Route::put('/update/{id}', [FiturLandingController::class, 'update'])->name('update');
+// Route::get('/preview/{id}', [FiturLandingController::class, 'preview'])->name('preview');
 
 

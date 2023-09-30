@@ -42,14 +42,17 @@
                         @endif
                         <div class="card">
                             <div class="card-header">
-                                <h4>All Posts</h4>
+                                <h4>All Fitur</h4>
                             </div>
                             <div class="card-body">
                                 <div class="float-left">
                                     <!-- Button to trigger modal -->
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#createModal">
-                                        Create New Post
+                                        data-target="#createModal"><i class="fas fa-plus"></i>
+                                        Create New Fitur
+                                    </button>
+                                    <button type="button" class="btn btn-success"><i class="fas fa-eye"></i>
+                                        Preview in Website
                                     </button>
                                 </div>
                                 <div class="float-right">
@@ -68,12 +71,9 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Author</th>
-                                                <th>Title</th>
-                                                <th>Category</th>
-                                                <th>Content</th>
+                                                <th>Judul</th>
+                                                <th>Isi</th>
                                                 <th>Image</th>
-                                                <th>Status</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -84,10 +84,8 @@
                                             @foreach ($posts as $post)
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
-                                                    <td>{{ $post->author_name }}</td>
-                                                    <td>{{ $post->title }}</td>
-                                                    <td>{{ $post->category }}</td>
-                                                    <td>{{ $post->content }}</td>
+                                                    <td>{{ $post->judul }}</td>
+                                                    <td>{{ $post->isi }}</td>
                                                     <td>
                                                         @if ($post->image)
                                                             <img src="{{ asset('storage/' . $post->image) }}" alt="Image"
@@ -96,8 +94,6 @@
                                                             No Image
                                                         @endif
                                                     </td>
-
-                                                    <td>{{ $post->status }}</td>
                                                     <td>
                                                         <div class="d-flex justify-content">
                                                             <a href="{{ route('preview', ['id' => $post->id]) }}" class="btn btn-primary">Preview</a>
@@ -106,12 +102,12 @@
                                                                 data-target="#editModal{{ $post->id }}">Edit</button>
                                                             <button type="button" class="btn btn-danger"
                                                                 style="margin-left: 5px;"
-                                                                onclick="deletePost({{ $post->id }})">
+                                                                onclick="deletePost({{ $post->id }}, '{{ $post->judul }}')">
                                                                 Delete
                                                             </button>
 
                                                             <!-- Formulir Penghapusan Tersembunyi -->
-                                                            <form id="delete-form-{{ $post->id }}"
+                                                            <form id="delete-form-({{ $post->id }})"
                                                                 action="{{ route('destroy', ['id' => $post->id]) }}"
                                                                 method="POST">
                                                                 @csrf
@@ -160,10 +156,10 @@
     </div>
 
     <script>
-        function deletePost(id) {
+        function deletePost(id, judul) {
             Swal.fire({
                 title: 'Are you sure?',
-                text: 'You won\'t be able to revert this!',
+                text: 'You are about to delete the post with title: "' + judul + '". This action cannot be undone!',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -180,6 +176,6 @@
     </script>
 
     <!-- Create Post Modal -->
-    @include('modals.create_modal')
-    @include('modals.edit_modal')
+    @include('pages.landing.fitur.modals.create_modal')
+    @include('pages.landing.fitur.modals.edit_modal')
 @endsection

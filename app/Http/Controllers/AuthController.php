@@ -2,30 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
-    public function register()
-    {
-        return view('auth.register');
-    }
+    // public function register()
+    // {
+    //     return view('auth.register');
+    // }
 
-    public function registerPost(Request $request)
-    {
-        $user = new User();
+    // public function registerPost(Request $request)
+    // {
+    //     $user = new User();
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+    //     $user->name = $request->name;
+    //     $user->email = $request->email;
+    //     $user->password = Hash::make($request->password);
 
-        $user->save();
+    //     $user->save();
 
-        return back()->with('success', 'Register berhasil!');
-    }
+    //     return back()->with('success', 'Register berhasil!');
+    // }
 
     public function login()
     {
@@ -34,16 +33,15 @@ class AuthController extends Controller
 
     public function loginPost(Request $request)
     {
-        $credentials = [
-            'email' => $request->email,
-            'password' => $request->password,
-        ];
+        $email = "admin@gmail.com";
+        $password = "123";
 
-        if (Auth::attempt($credentials)) {
-            return redirect('/home')->with('success', 'Login Berhasil');
+        if ($request->input('email') == $email && $request->input('password') == $password) {
+            Session::put('email', $email);
+            return redirect()->route('home')->with('success', 'Login successful. Redirecting to dashboard.');
+        } else {
+            return redirect()->back()->with('error', 'Invalid credentials!');
         }
-
-        return back()->with('error', 'Email or Password salah');
     }
 
     public function logout()
