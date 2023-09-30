@@ -49,7 +49,7 @@ class FiturLandingController extends Controller
 
         $post->save();
 
-        return redirect('/list')->with('success', 'Post has been added.');
+        return redirect('/fitur')->with('success', 'Post has been added.');
     }
 
     /**
@@ -103,7 +103,7 @@ class FiturLandingController extends Controller
 
         $post->save();
 
-        return redirect('/list')->with('success', 'Post has been edited.');
+        return redirect('/fitur')->with('success', 'Post has been edited.');
     }
 
     /**
@@ -114,6 +114,6 @@ class FiturLandingController extends Controller
         $post = FiturLanding::find($id);
         $post->delete();
 
-        return redirect('/list')->with('success', 'Activity has been deleted.');
+        return redirect('/fitur')->with('success', 'Activity has been deleted.');
     }
 }
