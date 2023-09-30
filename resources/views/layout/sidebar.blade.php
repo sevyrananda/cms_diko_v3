@@ -28,6 +28,9 @@
             <li class="dropdown @if (request()->routeIs('posFitur')) active @endif">
                 <a href="{{ route('posFitur') }}" class="nav-link"><i data-feather="layers"></i><span>Features POS</span></a>
             </li>
+            <li class="dropdown @if (request()->routeIs('posPlugin')) active @endif">
+                <a href="{{ route('posPlugin') }}" class="nav-link"><i data-feather="package"></i><span>Plugin</span></a>
+            </li>
             <li class="dropdown @if (request()->routeIs('posPricing')) active @endif">
                 <a href="{{ route('posPricing') }}" class="nav-link"><i data-feather="tag"></i><span>Pricing</span></a>
             </li>
@@ -39,6 +42,9 @@
             <li class="menu-header">DIKO SP</li>
             <li class="dropdown @if (request()->routeIs('spFitur')) active @endif">
                 <a href="{{ route('spFitur') }}" class="nav-link"><i data-feather="layers"></i><span>Features SP</span></a>
+            </li>
+            <li class="dropdown @if (request()->routeIs('spPlugin')) active @endif">
+                <a href="{{ route('spPlugin') }}" class="nav-link"><i data-feather="package"></i><span>Plugin</span></a>
             </li>
             <li class="dropdown @if (request()->routeIs('spPricing')) active @endif">
                 <a href="{{ route('spPricing') }}" class="nav-link"><i data-feather="tag"></i><span>Pricing</span></a>
