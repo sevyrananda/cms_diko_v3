@@ -39,7 +39,7 @@ Route::get('/home', [AuthController::class, 'setelahLogin'])->name('home');
 //Landing Page - Fitur
 Route::get('/fitur', [FiturLandingController::class, 'index'])->name('fitur');
 Route::post('/store', [FiturLandingController::class, 'store'])->name('store');
-Route::delete('/posts/{id}', [FiturLandingController::class, 'destroy'])->name('destroy');
+Route::delete('/post/{id}', [FiturLandingController::class, 'destroy'])->name('destroy');
 Route::get('/edit/{id}', [FiturLandingController::class, 'edit'])->name('edit');
 Route::put('/update/{id}', [FiturLandingController::class, 'update'])->name('update');
 Route::get('/preview/{id}', [FiturLandingController::class, 'preview'])->name('preview');

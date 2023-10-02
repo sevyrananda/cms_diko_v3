@@ -107,7 +107,7 @@
                                                             </button>
 
                                                             <!-- Formulir Penghapusan Tersembunyi -->
-                                                            <form id="delete-form-({{ $post->id }})"
+                                                            <form id="delete-form-{{ $post->id }}"
                                                                 action="{{ route('destroy', ['id' => $post->id]) }}"
                                                                 method="POST">
                                                                 @csrf
