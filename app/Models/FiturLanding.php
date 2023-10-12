@@ -18,6 +18,6 @@ class FiturLanding extends Model
         'id',
         'judul',
         'isi',
-        'image',
+        'icon',
     ];
 }

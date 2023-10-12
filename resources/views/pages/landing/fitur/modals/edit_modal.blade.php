@@ -3,7 +3,7 @@
 <div class="modal fade" id="editModal{{ $post->id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="{{ route('update', ['id' => $post->id]) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('landing.update', ['id' => $post->id]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
@@ -22,16 +22,14 @@
                         <input type="text" class="form-control" id="edit_isi" name="edit_isi" value="{{ $post->isi }}">
                     </div>
                     <div class="form-group">
-                        <label for="edit_image">Image</label>
-                        <input type="file" class="form-control-file" id="edit_image" name="edit_image">
-                        @if ($post->image)
-                            <div style="display: flex; align-items: center;">
-                                {{-- <img src="{{ asset('storage/' . $post->image) }}" alt="Image" style="max-width: 100px; margin-right: 10px;"> --}}
-                                <p>Nama File: {{ $post->image }}</p>
-                            </div>
-                        @else
-                            No Image
-                        @endif
+                        <label for="edit_icon">Pilih Ikon:</label>
+                        <select id="editIconSelector" class="form-control" name="edit_icon">
+                            <option value="{{ $post->icon }}" selected disabled>{{ $post->icon }}</option>
+                            <option value="bi-currency-exchange">bi-currency-exchange</option>
+                            <option value="bi-credit-card-2-back">bi-credit-card-2-back</option>
+                            <option value="bi-cloud-check">bi-cloud-check</option>
+                            <option value="bi-shield-check">bi-shield-check</option>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -42,4 +40,24 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Mendapatkan elemen-elemen yang diperlukan
+    var editIconSelector = document.getElementById('editIconSelector');
+    var editIconPreview = document.getElementById('editIconPreview');
+    var editJudulPreview = document.getElementById('editJudulPreview');
+    var editIsiPreview = document.getElementById('editIsiPreview');
+
+    // Mengatur ikon awal saat modal pengeditan dibuka
+    editIconPreview.className = 'bi ' + '{{ $post->icon }}';
+
+    // Mendengarkan perubahan dalam elemen <select> pada modal pengeditan
+    editIconSelector.addEventListener('change', function () {
+        var selectedValue = editIconSelector.value; // Mendapatkan nilai yang dipilih
+
+        // Mengganti ikon yang ditampilkan sesuai dengan nilai yang dipilih
+        editIconPreview.className = 'bi ' + selectedValue;
+    });
+</script>
+
 @endforeach

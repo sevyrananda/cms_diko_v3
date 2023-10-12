@@ -11,7 +11,7 @@
             </div>
             <div class="modal-body">
                 <!-- Your form for creating a new post goes here -->
-                <form action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('landing.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="judul">Judul</label>
@@ -22,9 +22,15 @@
                         <input type="text" class="form-control" id="isi" name="isi" required>
                     </div>
                     <div class="form-group">
-                        <label for="image">Image</label>
-                        <input type="file" class="form-control-file" id="image" name="image">
+                        <label for="icon">Pilih Ikon:</label>
+                        <select id="selectedIcon" class="form-control" name="icon">
+                            <option value="bi bi-currency-exchange">bi bi-currency-exchange</option>
+                            <option value="bi bi-credit-card-2-back">bi bi-credit-card-2-back</option>
+                            <option value="bi bi-cloud-check">bi bi-cloud-check</option>
+                            <option value="bi bi-shield-check">bi bi-shield-check</option>
+                        </select>
                     </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Create Fitur</button>
@@ -34,3 +40,18 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Mendapatkan elemen-elemen yang diperlukan
+    var iconSelector = document.getElementById('icon');
+    var selectedIcon = document.getElementById('selectedIcon');
+
+    // Mendengarkan perubahan dalam elemen <select>
+    iconSelector.addEventListener('change', function () {
+        var selectedValue = iconSelector.value; // Mendapatkan nilai yang dipilih
+
+        // Mengganti ikon yang ditampilkan sesuai dengan nilai yang dipilih
+        selectedIcon.innerHTML = '<i class="' + selectedValue + '"></i>';
+    });
+</script>
+

@@ -16,8 +16,8 @@
         </ul>
         <ul class="sidebar-menu">
             <li class="menu-header">Landing Page Utama</li>
-            <li class="dropdown @if (request()->routeIs('fitur')) active @endif">
-                <a href="{{ route('fitur') }}" class="nav-link"><i data-feather="layers"></i><span>Features</span></a>
+            <li class="dropdown @if (request()->routeIs('landing.fitur')) active @endif">
+                <a href="{{ route('landing.fitur') }}" class="nav-link"><i data-feather="layers"></i><span>Features</span></a>
             </li>
             <li class="dropdown @if (request()->routeIs('faq')) active @endif">
                 <a href="{{ route('faq') }}" class="nav-link"><i data-feather="help-circle"></i><span>FAQ</span></a>
@@ -25,8 +25,8 @@
         </ul>
         <ul class="sidebar-menu">
             <li class="menu-header">DIKO POS</li>
-            <li class="dropdown @if (request()->routeIs('posFitur')) active @endif">
-                <a href="{{ route('posFitur') }}" class="nav-link"><i data-feather="layers"></i><span>Features POS</span></a>
+            <li class="dropdown @if (request()->routeIs('pos.fitur')) active @endif">
+                <a href="{{ route('pos.fitur') }}" class="nav-link"><i data-feather="layers"></i><span>Features POS</span></a>
             </li>
             <li class="dropdown @if (request()->routeIs('posPlugin')) active @endif">
                 <a href="{{ route('posPlugin') }}" class="nav-link"><i data-feather="package"></i><span>Plugin</span></a>

@@ -51,9 +51,8 @@
                                         data-target="#createModal"><i class="fas fa-plus"></i>
                                         Create New Fitur
                                     </button>
-                                    <button type="button" class="btn btn-success"><i class="fas fa-eye"></i>
-                                        Preview in Website
-                                    </button>
+                                    <a href="{{ route('landing.preview') }}"  class="btn btn-success"><i class="fas fa-eye"></i>
+                                        Preview in Website</a>
                                 </div>
                                 <div class="float-right">
                                     <form>
@@ -71,9 +70,9 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Judul</th>
-                                                <th>Isi</th>
-                                                <th>Image</th>
+                                                <th>Nama Fitur</th>
+                                                <th>Deskripsi</th>
+                                                <th>Icon</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -86,17 +85,11 @@
                                                     <td>{{ $no++ }}</td>
                                                     <td>{{ $post->judul }}</td>
                                                     <td>{{ $post->isi }}</td>
-                                                    <td>
-                                                        @if ($post->image)
-                                                            <img src="{{ asset('storage/' . $post->image) }}" alt="Image"
-                                                                style="max-width: 100px;">
-                                                        @else
-                                                            No Image
-                                                        @endif
-                                                    </td>
+                                                    <td>{{ $post->icon }}</td>
+
                                                     <td>
                                                         <div class="d-flex justify-content">
-                                                            <a href="{{ route('preview', ['id' => $post->id]) }}" class="btn btn-primary">Preview</a>
+                                                            <a href="" class="btn btn-primary">Preview</a>
                                                             <button type="submit" class="btn btn-warning"
                                                                 style="margin-left: 5px;" data-toggle="modal"
                                                                 data-target="#editModal{{ $post->id }}">Edit</button>
@@ -108,7 +101,7 @@
 
                                                             <!-- Formulir Penghapusan Tersembunyi -->
                                                             <form id="delete-form-{{ $post->id }}"
-                                                                action="{{ route('destroy', ['id' => $post->id]) }}"
+                                                                action="{{ route('landing.destroy', ['id' => $post->id]) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')

@@ -20,10 +20,6 @@ class FiturLandingController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    // public function create()
-    // {
-    //     return view('landing.fitur.create');
-    // }
 
     /**
      * Store a newly created resource in storage.
@@ -34,22 +30,17 @@ class FiturLandingController extends Controller
         $validatedData = $request->validate([
             'judul' => 'required',
             'isi' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'icon' => 'required',
         ]);
 
         $post = new FiturLanding();
         $post->judul = $request->input('judul');
         $post->isi = $request->input('isi');
-
-        // Upload dan simpan gambar jika ada
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('public');
-            $post->image = str_replace('public/', '', $imagePath);
-        }
+        $post->icon = $request->input('icon');
 
         $post->save();
 
-        return redirect('/fitur')->with('success', 'Features has been added.');
+        return redirect('/landing/fitur')->with('success', 'Features has been added.');
     }
 
     /**
@@ -61,10 +52,10 @@ class FiturLandingController extends Controller
         return view('pages.landing.fitur.list', compact('post'));
     }
 
-    public function preview($id)
+    public function preview()
     {
-        $post = FiturLanding::find($id);
-        return view('pages.landing.fitur.preview', compact('post'));
+        $posts = FiturLanding::all();
+        return view('pages.landing.fitur.preview', compact('posts'));
     }
 
     /**
@@ -72,8 +63,8 @@ class FiturLandingController extends Controller
      */
     public function edit($id)
     {
-        $post = FiturLanding::find($id);
-        return view('pages.landing.fitur.edit', compact('post'));
+        $posts = FiturLanding::find($id);
+        return view('pages.landing.fitur.edit', compact('posts'));
     }
 
     /**
@@ -85,7 +76,7 @@ class FiturLandingController extends Controller
         $validatedData = $request->validate([
             'edit_judul' => 'required',
             'edit_isi' => 'required',
-            'edit_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'edit_icon' => 'required',
         ]);
 
         // Temukan data post berdasarkan ID
@@ -94,16 +85,11 @@ class FiturLandingController extends Controller
         // Perbarui data post berdasarkan data yang dikirimkan
         $post->judul = $request->input('edit_judul');
         $post->isi = $request->input('edit_isi');
-
-        // Upload dan simpan gambar jika ada
-        if ($request->hasFile('edit_image')) {
-            $imagePath = $request->file('edit_image')->store('public');
-            $post->image = str_replace('public/', '', $imagePath);
-        }
+        $post->icon = $request->input('edit_icon');
 
         $post->save();
 
-        return redirect('/fitur')->with('success', 'Features has been edited.');
+        return redirect('/landing/fitur')->with('success', 'Features has been edited.');
     }
 
     /**
@@ -114,6 +100,6 @@ class FiturLandingController extends Controller
         $post = FiturLanding::find($id);
         $post->delete();
 
-        return redirect('/fitur')->with('success', 'Features has been deleted.');
+        return redirect('/landing/fitur')->with('success', 'Features has been deleted.');
     }
 }
