@@ -11,6 +11,7 @@ class FiturPos extends Model
 
     protected $table = 'fitur_pos';
 
+    protected $primaryKey = 'id';
     public $incrementing = false;
     public $timestamps = true;
 
@@ -20,9 +21,12 @@ class FiturPos extends Model
         'judul_icon1',
         'judul_detail',
         'isi_detail',
-        'icon2',
-        'judul_icon2',
-        'isi',
         'image',
     ];
+
+    // public function produk()
+    // {
+    //     return $this->hasMany(Produk::class, 'fiturpos_id', 'id');
+    // }
+
 }

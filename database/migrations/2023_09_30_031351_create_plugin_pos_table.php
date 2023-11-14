@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('plugin_pos', function (Blueprint $table) {
             $table->id();
+            $table->string('judul',100);
+            $table->string('isi',200);
+            $table->string('image')->nullable();
+
             $table->timestamps();
         });
     }

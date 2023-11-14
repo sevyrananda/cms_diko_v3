@@ -9,84 +9,94 @@ class FiturSpController extends Controller
 {
     public function index()
     {
-        $posts = FiturSp::get();
-        return view('pages.diko_sp.fitur.list', compact('posts'));
+        $fitur = FiturSp::get();
+        return view('pages.diko_sp.fitur.list', compact('fitur'));
     }
 
     public function store(Request $request)
     {
         // Validasi data
         $validatedData = $request->validate([
-            'judul' => 'required',
-            'isi' => 'required',
+            'icon1' => 'required',
+            'judul_icon1' => 'required',
+            'judul_detail' => 'required',
+            'isi_detail' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $post = new FiturSp();
-        $post->judul = $request->input('judul');
-        $post->isi = $request->input('isi');
+        $sp = new FiturSp();
+        $sp->icon1 = $request->input('icon1');
+        $sp->judul_icon1 = $request->input('judul_icon1');
+        $sp->judul_detail = $request->input('judul_detail');
+        $sp->isi_detail = $request->input('isi_detail');
 
         // Upload dan simpan gambar jika ada
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('public');
-            $post->image = str_replace('public/', '', $imagePath);
+            $sp->image = str_replace('public/', '', $imagePath);
         }
 
-        $post->save();
+        $sp->save();
 
-        return redirect('/sp/fitur/list')->with('success', 'Features has been added.');
+        return redirect('/sp/fitur/list')->with('success', 'Fitur Section 1 Berhasil Ditambahkan.');
     }
 
     public function show($id)
     {
-        $post = FiturSp::all();
-        return view('pages.diko_sp.fitur.list', compact('post'));
+        $fitur = FiturSp::all();
+        return view('pages.diko_sp.fitur.list', compact('fitur'));
     }
 
-    public function preview($id)
+    public function preview()
     {
-        $post = FiturSp::find($id);
-        return view('pages.diko_sp.fitur.preview', compact('post'));
-    }
-
-    public function edit($id)
-    {
-        $post = FiturSp::find($id);
-        return view('pages.diko_sp.fitur.edit', compact('post'));
+        $fitur = FiturSp::all();
+        return view('pages.diko_sp.fitur.preview', compact('fitur'));
     }
 
     public function update(Request $request, $id)
     {
         // Validasi data
         $validatedData = $request->validate([
-            'edit_judul' => 'required',
-            'edit_isi' => 'required',
+            'edit_icon1' => 'nullable',
+            'edit_judul_icon1' => 'nullable',
+            'edit_judul_detail' => 'nullable',
+            'edit_isi_detail' => 'nullable',
             'edit_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         // Temukan data post berdasarkan ID
-        $post = FiturSp::find($id);
+        $sp = FiturSp::find($id);
 
         // Perbarui data post berdasarkan data yang dikirimkan
-        $post->judul = $request->input('edit_judul');
-        $post->isi = $request->input('edit_isi');
+        if ($request->has('edit_icon1')) {
+            $sp->icon1 = $request->input('edit_icon1');
+        }
+        if ($request->has('edit_judul_icon1')) {
+            $sp->judul_icon1 = $request->input('edit_judul_icon1');
+        }
+        if ($request->has('edit_judul_detail')) {
+            $sp->judul_detail = $request->input('edit_judul_detail');
+        }
+        if ($request->has('edit_isi_detail')) {
+            $sp->isi_detail = $request->input('edit_isi_detail');
+        }
 
         // Upload dan simpan gambar jika ada
         if ($request->hasFile('edit_image')) {
             $imagePath = $request->file('edit_image')->store('public');
-            $post->image = str_replace('public/', '', $imagePath);
+            $sp->image = str_replace('public/', '', $imagePath);
         }
 
-        $post->save();
+        $sp->save();
 
-        return redirect('/sp/fitur/list')->with('success', 'Features has been edited.');
+        return redirect('/sp/fitur/list')->with('success', 'Fitur Section 1 Berhasil Diupdate.');
     }
 
     public function destroy($id)
     {
-        $post = FiturSp::find($id);
-        $post->delete();
+        $sp = FiturSp::find($id);
+        $sp->delete();
 
-        return redirect('/sp/fitur/list')->with('success', 'Features has been deleted.');
+        return redirect('/sp/fitur/list')->with('success', 'Fitur Section 1 Berhasil Dihapus!.');
     }
 }

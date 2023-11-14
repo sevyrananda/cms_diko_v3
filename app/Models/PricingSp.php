@@ -7,5 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class PricingSp extends Model
 {
-    use HasFactory;
+    protected $table = 'pricing_sp';
+
+    public $timestamps = true;
+
+    protected $fillable = [
+        'nama_pricingsp',
+        'harga_pricingsp',
+    ];
+
+    public function deskripsi()
+    {
+        return $this->hasMany(DeskripsiPricingSp::class);
+    }
 }

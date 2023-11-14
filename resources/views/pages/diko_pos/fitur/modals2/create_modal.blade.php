@@ -4,22 +4,22 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createModalLabel">Create New Fitur</h5>
+                <h5 class="modal-title" id="createModalLabel">Create New Fitur Section 2</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <!-- Your form for creating a new post goes here -->
-                <form action="{{ route('pos.fitur.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('pos.fitur2.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="icon2">Icon2</label>
                         <select id="selectedIcon2" class="form-control" name="icon2">
-                            <option value="bi bi-currency-exchange">bi bi-currency-exchange</option>
-                            <option value="bi bi-credit-card-2-back">bi bi-credit-card-2-back</option>
-                            <option value="bi bi-cloud-check">bi bi-cloud-check</option>
-                            <option value="bi bi-shield-check">bi bi-shield-check</option>
+                            <option value="bi bi-search">bi bi-search</option>
+                            <option value="bi bi-arrow-down-up">bi bi-arrow-down-up</option>
+                            <option value="bi bi-bar-chart">bi bi-bar-chart</option>
+                            <option value="bi bi-bounding-box-circles">bi bi-bounding-box-circles</option>
                         </select>
                     </div>
                     <div class="form-group">

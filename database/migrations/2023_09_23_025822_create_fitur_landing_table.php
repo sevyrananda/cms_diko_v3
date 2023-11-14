@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('fitur_landing', function (Blueprint $table) {
             $table->id();
             $table->string('judul',100);
-            $table->string('isi',100);
+            $table->string('isi',500);
             $table->string('icon')->nullable();
 
             $table->timestamps();
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('post');
+        Schema::dropIfExists('fitur_landing');
     }
 };

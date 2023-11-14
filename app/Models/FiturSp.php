@@ -11,13 +11,17 @@ class FiturSp extends Model
 
     protected $table = 'fitur_sp';
 
+    protected $primaryKey = 'id';
     public $incrementing = false;
     public $timestamps = true;
 
     protected $fillable = [
         'id',
-        'judul',
-        'isi',
+        'icon1',
+        'judul_icon1',
+        'judul_detail',
+        'isi_detail',
         'image',
     ];
+
 }

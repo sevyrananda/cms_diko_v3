@@ -21,92 +21,88 @@ class FiturPosController extends Controller
             'judul_icon1' => 'required',
             'judul_detail' => 'required',
             'isi_detail' => 'required',
-            'icon2' => 'required',
-            'judul_icon2' => 'required',
-            'isi' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $post = new FiturPos();
-        $post->icon1 = $request->input('icon1');
-        $post->judul_icon1 = $request->input('judul_icon1');
-        $post->judul_detail = $request->input('judul_detail');
-        $post->isi_detail = $request->input('isi_detail');
-        $post->icon2 = $request->input('icon2');
-        $post->judul_icon2 = $request->input('judul_icon2');
-        $post->isi = $request->input('isi');
+        $pos = new FiturPos();
+        $pos->icon1 = $request->input('icon1');
+        $pos->judul_icon1 = $request->input('judul_icon1');
+        $pos->judul_detail = $request->input('judul_detail');
+        $pos->isi_detail = $request->input('isi_detail');
 
         // Upload dan simpan gambar jika ada
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('public');
-            $post->image = str_replace('public/', '', $imagePath);
+            $pos->image = str_replace('public/', '', $imagePath);
         }
 
-        $post->save();
+        $pos->save();
 
-        return redirect('/pos/fitur/list')->with('success', 'Features has been added.');
+        return redirect('/pos/fitur/list')->with('success', 'Fitur Section 1 Berhasil Ditambahkan.');
     }
 
     public function show($id)
     {
-        $post = FiturPos::all();
-        return view('pages.diko_pos.fitur.list', compact('post'));
+        $posts = FiturPos::all();
+        return view('pages.diko_pos.fitur.list', compact('posts'));
     }
 
     public function preview()
     {
-        $post = FiturPos::all();
-        return view('pages.diko_pos.fitur.preview', compact('post'));
+        $posts = FiturPos::all();
+        return view('pages.diko_pos.fitur.preview', compact('posts'));
     }
 
-    public function edit($id)
-    {
-        $post = FiturPos::find($id);
-        return view('pages.diko_pos.fitur.edit', compact('post'));
-    }
+    // public function edit($id)
+    // {
+    //     $pos = FiturPos::find($id);
+    //     return view('pages.diko_pos.fitur.edit', compact('pos'));
+    // }
 
     public function update(Request $request, $id)
     {
         // Validasi data
         $validatedData = $request->validate([
-            'edit_icon1' => 'required',
-            'edit_judul_icon1' => 'required',
-            'edit_judul_detail' => 'required',
-            'edit_isi_detail' => 'required',
-            'edit_icon2' => 'required',
-            'edit_judul_icon2' => 'required',
-            'edit_isi' => 'required',
+            'edit_icon1' => 'nullable',
+            'edit_judul_icon1' => 'nullable',
+            'edit_judul_detail' => 'nullable',
+            'edit_isi_detail' => 'nullable',
             'edit_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         // Temukan data post berdasarkan ID
-        $post = FiturPos::find($id);
+        $pos = FiturPos::find($id);
 
         // Perbarui data post berdasarkan data yang dikirimkan
-        $post->icon1 = $request->input('edit_icon1');
-        $post->judul_icon1 = $request->input('edit_judul_icon1');
-        $post->judul_detail = $request->input('edit_judul_detail');
-        $post->isi_detail = $request->input('edit_isi_detail');
-        $post->icon2 = $request->input('edit_icon2');
-        $post->judul_icon2 = $request->input('edit_judul_icon2');
-        $post->isi = $request->input('edit_isi');
+        if ($request->has('edit_icon1')) {
+            $pos->icon1 = $request->input('edit_icon1');
+        }
+        if ($request->has('edit_judul_icon1')) {
+            $pos->judul_icon1 = $request->input('edit_judul_icon1');
+        }
+        if ($request->has('edit_judul_detail')) {
+            $pos->judul_detail = $request->input('edit_judul_detail');
+        }
+        if ($request->has('edit_isi_detail')) {
+            $pos->isi_detail = $request->input('edit_isi_detail');
+        }
 
         // Upload dan simpan gambar jika ada
         if ($request->hasFile('edit_image')) {
             $imagePath = $request->file('edit_image')->store('public');
-            $post->image = str_replace('public/', '', $imagePath);
+            $pos->image = str_replace('public/', '', $imagePath);
         }
 
-        $post->save();
+        $pos->save();
 
-        return redirect('/pos/fitur/list')->with('success', 'Features has been edited.');
+        return redirect('/pos/fitur/list')->with('success', 'Fitur Section 1 Berhasil Diupdate.');
     }
 
     public function destroy($id)
     {
-        $post = FiturPos::find($id);
-        $post->delete();
+        $pos = FiturPos::find($id);
+        $pos->delete();
 
-        return redirect('/pos/fitur/list')->with('success', 'Features has been deleted.');
+        return redirect('/pos/fitur/list')->with('success', 'Fitur Section 1 Berhasil Dihapus!.');
     }
 }

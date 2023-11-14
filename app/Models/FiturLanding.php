@@ -11,13 +11,20 @@ class FiturLanding extends Model
 
     protected $table = 'fitur_landing';
 
+    protected $primaryKey = 'id_fitur';
     public $incrementing = false;
     public $timestamps = true;
 
     protected $fillable = [
-        'id',
+        'id_fitur',
         'judul',
         'isi',
         'icon',
     ];
+
+    // public function produk()
+    // {
+    //     return $this->hasMany(Produk::class, 'fiturlanding_id', 'id');
+    // }
+
 }

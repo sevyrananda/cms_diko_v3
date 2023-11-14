@@ -4,32 +4,6 @@
     <div class="main-content">
         <section class="section">
             <div class="section-body">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card mb-0">
-                            <div class="card-body">
-                                <ul class="nav nav-pills">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="#">All <span
-                                                class="badge badge-white">10</span></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Draft <span
-                                                class="badge badge-primary">2</span></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Pending <span
-                                                class="badge badge-primary">3</span></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Trash <span
-                                                class="badge badge-primary">0</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="row mt-4">
                     <div class="col-12">
                         @if (session('success'))
@@ -42,7 +16,7 @@
                         @endif
                         <div class="card">
                             <div class="card-header">
-                                <h4>All Fitur</h4>
+                                <h4>All Fitur Utama</h4>
                             </div>
                             <div class="card-body">
                                 <div class="float-left">
@@ -89,7 +63,7 @@
 
                                                     <td>
                                                         <div class="d-flex justify-content">
-                                                            <a href="" class="btn btn-primary">Preview</a>
+                                                            <a href="{{ route('landing.show', ['id' => $post->id]) }}" class="btn btn-primary">Show</a>
                                                             <button type="submit" class="btn btn-warning"
                                                                 style="margin-left: 5px;" data-toggle="modal"
                                                                 data-target="#editModal{{ $post->id }}">Edit</button>

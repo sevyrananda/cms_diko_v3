@@ -47,6 +47,32 @@
             </div>
         </section><!-- End About Section -->
 
+        <!-- ======= Counts Section ======= -->
+        <section id="counts" class="counts">
+            <div class="container">
+
+                <div class="row counters">
+
+                    <div class="col-lg-4 col-7 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="14800" data-purecounter-duration="1"
+                            class="purecounter"></span>
+                        <p>Pengusaha</p>
+                    </div>
+
+                    <div class="col-lg-4 col-7 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="347" data-purecounter-duration="1"
+                            class="purecounter"></span>
+                        <p>Kota/Kabupaten</p>
+                    </div>
+
+                    <div class="col-lg-4 col-7 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1"
+                            class="purecounter"></span>
+                        <p>Bidang Usaha</p>
+                    </div>
+                </div>
+        </section><!-- End Counts Section -->
+
         <!-- ======= Services Section ======= -->
         <section id="services" class="services section-bg">
             <div class="container" data-aos="fade-up">
@@ -78,5 +104,155 @@
             </div>
         </section><!-- End Services Section -->
 
+        <!-- ======= Motto Section ======= -->
+        <section id="features" class="features">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Motto</h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column align-items-lg-center">
+                        <div class="icon-box mt-5 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
+                            <i class="bx bx-receipt"></i>
+                            <h4>Percayakan tugas Anda kepada tim Kami</h4>
+                            <p>Serahkan kegiatan Administrasi pada tim dan Anda dapat fokus mengembangkan bisnis. Dengan
+                                akses multi-user, Anda dapat membagi tugas kepada anggota tim sesuai dengan kebutuhan.</p>
+                        </div>
+                        <div class="icon-box mt-5" data-aos="fade-up" data-aos-delay="200">
+                            <i class="bx bx-cube-alt"></i>
+                            <h4>Kerja tanpa batasan ruang</h4>
+                            <p>Selesaikan pekerjaan Anda dari mana saja untuk memberikan hasil kerja yang lebih efisien
+                                seperti membuat faktur penjualan dan pembelian, cek stok barang, hingga, persetujuan
+                                transaksi.</p>
+                        </div>
+                        <div class="icon-box mt-5" data-aos="fade-up" data-aos-delay="300">
+                            <i class="bx bx-images"></i>
+                            <h4>Lihat laporan keuangan setiap saat</h4>
+                            <p>Kini Anda tidak perlu menunggu hingga akhir bulan untuk mengetahui kondisi keuangan
+                                perusahaan. Lakukan analisa dan pengambilan keputusan lebih cepat untuk kemajuan bisnis
+                                Anda.</p>
+                        </div>
+                    </div>
+                    <div class="image col-lg-6 order-1 order-lg-2 " data-aos="zoom-in" data-aos-delay="100">
+                        <img src="{{ url('Techie') }}/assets/img/landing3.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Features Section -->
+
+        <section id="features" class="features">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Kelola aktivitas koperasi Anda secara menyeluruh</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-15" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="clickable-content" onclick="toggleContent()">
+                            <img src="{{ url('Techie') }}/assets/img/landingbaru.png" alt="Clickable Image"
+                                class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======= Testimonials Section ======= -->
+        <section id="testimonials" class="testimonials section-bg">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Software akuntansi dapat digunakan di berbagai jenis usaha</h2>
+                </div>
+
+                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    Lihat informasi stok dan catat transaksi penjualan dengan perhitungan biaya rata-rata
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+
+                                <h3>Usaha Dagang</h3>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    Kelola pelanggan dan memantau nilai piutang serta waktu jatuh tempo piutang dengan
+                                    mudah, cepat dan akurat
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+
+                                <h3>Usaha Jasa</h3>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    Memudahkan kelola proyek dari pembuatan Rencana Anggaran Biaya hingga formulir
+                                    penyelesaian proyek
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+
+                                <h3>Usaha Kontraktor</h3>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    Menghitung biaya dan varian produksi secara otomatis untuk dapat memudahkan operasional
+                                    bisnis Anda
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+
+                                <h3>Usaha Manufaktur</h3>
+                            </div>
+                        </div><!-- End testimonial item -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </div>
+        </section><!-- End Testimonials Section -->
+
+        <!-- ======= Faq Section ======= -->
+        <section id="faq" class="faq">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="faq-list">
+                    <ul>
+                        @foreach ($faq as $faqs)
+                        <li data-aos="fade-up" data-aos-delay="100">
+                            <i class="bx bx-help-circle icon-help"></i>
+                            <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-{{ $faqs->id }}">
+                                {{ $faqs->question }}
+                                <i class="bx bx-chevron-down icon-show"></i>
+                                <i class="bx bx-chevron-up icon-close"></i>
+                            </a>
+                            <div id="faq-list-{{ $faqs->id }}" class="collapse show" data-bs-parent=".faq-list">
+                                <p>
+                                    {{ $faqs->answer }}
+                                </p>
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </section>
     </main><!-- End #main -->
 @endsection

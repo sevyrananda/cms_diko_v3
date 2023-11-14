@@ -34,6 +34,10 @@
                         <label for="isi_detail">Isi Detail</label>
                         <input type="text" class="form-control" id="isi_detail" name="isi_detail" required>
                     </div>
+                    <div class="form-group">
+                        <label for="image">Image</label>
+                        <input type="file" class="form-control-file" id="image" name="image">
+                    </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
