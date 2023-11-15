@@ -19,15 +19,19 @@ class PricingSpController extends Controller
         $validatedData = $request->validate([
             'nama_pricingsp' => 'required',
             'harga_pricingsp' => 'required',
-            'deskripsi_pricingsp' => 'required',
+            'deskripsi_pricingsp' => 'required|array',
         ]);
 
-        $post = new PricingSp();
-        $post->nama_pricingsp = $request->input('nama_pricingsp');
-        $post->harga_pricingsp = $request->input('harga_pricingsp');
-        $post->deskripsi_pricingsp = $request->input('deskripsi_pricingsp');
+        $post = PricingSp::create([
+            'nama_pricingsp' => $request->input('nama_pricingsp'),
+            'harga_pricingsp' => $request->input('harga_pricingsp'),
+        ]);
 
-        $post->save();
+        foreach ($request->deskripsi_pricingsp as $deskripsi) {
+            $post->deskripsi()->create([
+                'deskripsi' => $deskripsi,
+            ]);
+        }
 
         return redirect('/sp/pricing/list')->with('success', 'Pricing SP has been added.');
     }
@@ -62,7 +66,7 @@ class PricingSpController extends Controller
         $validatedData = $request->validate([
             'edit_nama_pricingsp' => 'required',
             'edit_harga_pricingsp' => 'required',
-            'edit_deskripsi_pricingsp' => 'required',
+            'edit_deskripsi_pricingsp' => 'required|array',
         ]);
 
         // Temukan data post berdasarkan ID
@@ -71,8 +75,16 @@ class PricingSpController extends Controller
         // Perbarui data post berdasarkan data yang dikirimkan
         $post->nama_pricingsp = $request->input('edit_nama_pricingsp');
         $post->harga_pricingsp = $request->input('edit_harga_pricingsp');
-        $post->deskripsi_pricingsp = $request->input('edit_deskripsi_pricingsp');
 
+        // Hapus deskripsi lama
+        $post->deskripsi()->delete();
+
+        // Tambahkan deskripsi baru
+        foreach ($request->edit_deskripsi_pricingsp as $deskripsi) {
+            $post->deskripsi()->create([
+                'deskripsi' => $deskripsi,
+            ]);
+        }
 
         $post->save();
 

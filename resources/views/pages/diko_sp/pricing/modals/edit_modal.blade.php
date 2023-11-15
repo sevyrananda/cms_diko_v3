@@ -26,8 +26,18 @@
                         <input type="text" class="form-control" id="edit_harga_pricingsp" name="edit_harga_pricingsp" value="{{ $post->harga_pricingsp }}">
                     </div>
                     <div class="form-group">
-                        <label for="edit_deskripsi_pricingsp_{{ $post->id }}">Deskripsi Pricing POS</label>
-                        <textarea class="form-control" id="edit_deskripsi_pricingsp_{{ $post->id }}" name="edit_deskripsi_pricingsp">{{ $post->deskripsi_pricingsp }}</textarea>
+                        <label for="deskripsi_pricingsp">Deskripsi Pricing SP</label>
+                        <div id="dynamicInput_{{ $post->id }}">
+                            @foreach($post->deskripsi as $deskripsi)
+                            <div class="input-group">
+                                <input class="form-control" name="edit_deskripsi_pricingsp[]" value="{{ $deskripsi->deskripsi }}" required></input>
+                                <button type="button" class="btn btn-danger" onclick="removeEditInput(this)">Remove</button>
+                            </div>
+                            @endforeach
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-primary" onclick="addEditInput({{ $post->id }})">Add More</button>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -44,4 +54,16 @@
     @foreach ($pricing as $post)
     CKEDITOR.replace('edit_deskripsi_pricingsp_{{ $post->id }}');
     @endforeach
-</script>>
+</script>
+
+<script>
+    function addEditInput(id) {
+        var div = document.createElement('div');
+        div.innerHTML = '<div class="input-group"><input class="form-control" name="edit_deskripsi_pricingsp[]" required></input><button type="button" class="btn btn-danger" onclick="removeEditInput(this)">Remove</button></div>';
+        document.getElementById('dynamicInput_' + id).appendChild(div);
+    }
+
+    function removeEditInput(element) {
+        element.parentElement.remove();
+    }
+</script>

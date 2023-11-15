@@ -87,9 +87,13 @@
                                                 <td>{{ $post->nama_pricingsp }}</td>
                                                 <td>{{ $post->harga_pricingsp }}</td>
                                                 <td>
-                                                    <div>{!! $post->deskripsi_pricingsp !!}</div>
+                                                    <ul>
+                                                        @foreach($post->deskripsi as $deskripsi)
+                                                            <li>{{ $deskripsi->deskripsi }}</li>
+                                                        @endforeach
+                                                    </ul>
                                                 </td>
-                                                {{-- <td>{{ strlen($post->deskripsi_pricingsp) > 70 ? substr($post->deskripsi_pricingsp, 0, 70) . '...' : $post->deskripsi_pricingsp }}</td> --}}
+
                                                 <td>
                                                     <div class="d-flex justify-content">
                                                         <a href="{{ route('sppricing.preview', ['id' => $post->id]) }}" class="btn btn-primary">Preview</a>

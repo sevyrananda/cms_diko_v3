@@ -175,16 +175,30 @@
                 </div>
 
                 <div class="row gy-4 justify-content-center">
-                    @foreach ($pricing as $post)
+                    @foreach ( $pricing as $post )
                         <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
                             <div class="pricing-item featured">
 
                                 <div class="pricing-header">
-                                    <h3>{{ $post->nama_pricingpos }}</h3>
-                                    <h4><sup>Rp. </sup>{{ $post->harga_pricingpos }},-<span> / month</span></h4>
+                                    <h3>{{ $post->nama_pricingsp }}</h3>
+                                    <h4><sup>Rp. </sup>{{ $post->harga_pricingsp }},-<span> / month</span></h4>
                                 </div>
 
-                                <div>{!! $post->deskripsi_pricingpos !!}</div>
+                                {{-- <ul>
+                                    <li><i class="bi bi-dot"></i> <span>{!! $post->deskripsi_pricingsp !!}</span></li>
+                                    <li><i class="bi bi-dot"></i> <span>Nec feugiat nisl pretium</span></li>
+                                    <li><i class="bi bi-dot"></i> <span>Nulla at volutpat diam uteera</span></li>
+                                    <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
+                                    <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
+                                </ul> --}}
+
+                                <div>
+                                    <ul>
+                                        @foreach($post->deskripsi as $deskripsi)
+                                            <li><i class="bi bi-dot"></i>{{ $deskripsi->deskripsi }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
 
                                 <div class="text-center mt-auto">
                                     <a href="#" class="buy-btn">Buy Now</a>

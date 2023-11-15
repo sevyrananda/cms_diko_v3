@@ -22,8 +22,6 @@
                                             <th>No</th>
                                             <th>Nama</th>
                                             <th>Email</th>
-                                            {{-- <th>Image</th> --}}
-                                            <th>Password</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -36,7 +34,6 @@
                                                     <td>{{ $no++ }}</td>
                                                     <td>{{ $post->name }}</td>
                                                     <td>{{ $post->email }}</td>
-                                                    <td>{{ $post->password }}</td>
                                                     <td>
                                                         <div class="d-flex justify-content">
 

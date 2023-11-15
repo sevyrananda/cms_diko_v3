@@ -25,10 +25,25 @@
                         <label for="harga_pricingsp">Harga Pricing SP</label>
                         <input type="text" class="form-control" id="harga_pricingsp" name="harga_pricingsp" required>
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="deskripsi_pricingsp">Deskripsi Pricing SP</label>
                         <textarea class="form-control" id="deskripsi_pricingsp" name="deskripsi_pricingsp" required></textarea>
+                    </div> --}}
+
+                    <div class="form-group">
+                        <label for="deskripsi_pricingsp">Deskripsi Pricing SP</label>
+                        <div id="dynamicInput">
+                            <!-- Use the container div to add multiple input fields -->
+                            <div class="input-group">
+                                <input class="form-control mb-1" name="deskripsi_pricingsp[]" required></input>
+                                <button type="button" class="btn btn-danger mb-1" onclick="removeInput(this)">Remove</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-success btn-block mt-1" onclick="addInput()">Add More</button>
+                        </div>
                     </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Create Pricing SP</button>
@@ -42,4 +57,19 @@
 
 <script>
     CKEDITOR.replace('deskripsi_pricingsp');
+</script>
+
+<script>
+    var i = 1;
+
+    function addInput() {
+        var div = document.createElement('div');
+        div.innerHTML = '<div class="input-group"><input class="form-control mb-1" name="deskripsi_pricingsp[]" required></input><button type="button" class="btn btn-danger mb-1" onclick="removeInput(this)">Remove</button></div>';
+        document.getElementById('dynamicInput').appendChild(div);
+        i++;
+    }
+
+    function removeInput(element) {
+        element.parentElement.remove(); // Remove the entire input group
+    }
 </script>
