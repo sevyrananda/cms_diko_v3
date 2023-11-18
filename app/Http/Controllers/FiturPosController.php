@@ -47,11 +47,12 @@ class FiturPosController extends Controller
         return view('pages.diko_pos.fitur.list', compact('posts'));
     }
 
-    public function preview()
+    public function preview($id)
     {
-        $posts = FiturPos::all();
+        $posts = FiturPos::find($id);
         return view('pages.diko_pos.fitur.preview', compact('posts'));
     }
+
 
     // public function edit($id)
     // {

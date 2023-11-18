@@ -4,32 +4,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-body">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card mb-0">
-                        <div class="card-body">
-                            <ul class="nav nav-pills">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="#">All <span
-                                            class="badge badge-white">10</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Draft <span
-                                            class="badge badge-primary">2</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Pending <span
-                                            class="badge badge-primary">3</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Trash <span
-                                            class="badge badge-primary">0</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <div class="row mt-4">
                 <div class="col-12">
                     @if (session('success'))
@@ -40,7 +15,7 @@
                             </button>
                         </div>
                     @endif
-                    <div class="card">
+                    {{-- <div class="card">
                         <div class="card-header">
                             <h4>All Pricing POS</h4>
                         </div>
@@ -144,6 +119,77 @@
                                         </li>
                                     </ul>
                                 </nav>
+                            </div>
+                        </div>
+                    </div> --}}
+
+                    {{-- Datatables --}}
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Pricing Produk Layout 1</h4>
+                        </div>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#createModal"><i class="fas fa-plus"></i>
+                                Create New
+                            </button>
+                            {{-- <a href="{{ route('pospricing.previewalldata') }}" class="btn btn-success"><i
+                                    class="fas fa-eye"></i>Preview</a> --}}
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="table-1">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">No</th>
+                                            <th class="text-center">Nama</th>
+                                            <th class="text-center">Harga</th>
+                                            <th class="text-center">Deskripsi</th>
+                                            <th class="text-center">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                            $no = 1;
+                                        @endphp
+                                        @foreach ($pricings as $p)
+                                            <tr>
+                                                <td>{{ $no++ }}</td>
+                                                <td>{{ $p->nama_pricingpos }}</td>
+                                                <td>{{ $p->harga_pricingpos }}</td>
+                                                <td>
+                                                    <ul>
+                                                        @foreach($p->deskripsi as $deskripsi)
+                                                            <li>{{ $deskripsi->deskripsi }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content">
+                                                        <a href="{{ route('pospricing.preview', ['id' => $p->id]) }}"
+                                                            class="btn btn-success">Preview</a>
+                                                        <button type="submit" class="btn btn-warning"
+                                                            style="margin-left: 5px;" data-toggle="modal"
+                                                            data-target="#editModal{{ $p->id }}">Edit</button>
+                                                        <button type="button" class="btn btn-danger"
+                                                            style="margin-left: 5px;"
+                                                            onclick="deletePost({{ $p->id }}, '{{ $p->judul }}')">
+                                                            Delete
+                                                        </button>
+
+                                                        <!-- Formulir Penghapusan Tersembunyi -->
+                                                        <form id="delete-form-{{ $p->id }}"
+                                                            action="{{ route('pospricing.destroy', ['id' => $p->id]) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

@@ -15,9 +15,9 @@
                         </div>
                     @endif
                     {{-- Fitur Section 1 --}}
-                    <div class="card">
+                    {{-- <div class="card">
                         <div class="card-header">
-                            <h4>Fitur Section 1</h4>
+                            <h4>Fitur Section 1.1</h4>
                         </div>
                         <div class="card-body">
                             <div class="float-left">
@@ -126,7 +126,84 @@
                                 </nav>
                             </div>
                         </div>
+                    </div> --}}
+
+                    {{-- Datatables --}}
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Fitur Section 1 Layout 2</h4>
+                        </div>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#createModal"><i class="fas fa-plus"></i>
+                                Create New
+                            </button>
+                            {{-- <a href="{{ route('sp.fitur.preview') }}" class="btn btn-success"><i
+                                    class="fas fa-eye"></i>Preview</a> --}}
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="table-1">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">No</th>
+                                            <th class="text-center">Icon</th>
+                                            <th class="text-center">Judul Icon</th>
+                                            <th class="text-center">Judul Detail</th>
+                                            <th class="text-center">Isi Detail</th>
+                                            <th class="text-center">Image</th>
+                                            <th class="text-center">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                            $no = 1;
+                                        @endphp
+                                        @foreach ($fitur as $sp)
+                                            <tr>
+                                                <td>{{ $no++ }}</td>
+                                                <td>{{ $sp->icon1 }}</td>
+                                                <td>{{ $sp->judul_icon1 }}</td>
+                                                <td>{{ $sp->judul_detail }}</td>
+                                                <td>{{ $sp->isi_detail }}</td>
+                                                <td>
+                                                    @if ($sp->image)
+                                                        <img src="{{ asset('storage/' . $sp->image) }}" alt="Image"
+                                                            style="max-width: 100px;">
+                                                    @else
+                                                        No Image
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content">
+                                                        <a href="{{ route('sp.fitur.preview', ['id' => $sp->id]) }}"
+                                                            class="btn btn-success">Preview</a>
+                                                        <button type="submit" class="btn btn-warning"
+                                                            style="margin-left: 5px;" data-toggle="modal"
+                                                            data-target="#editModal{{ $sp->id }}">Edit</button>
+                                                        <button type="button" class="btn btn-danger"
+                                                            style="margin-left: 5px;"
+                                                            onclick="deletePost({{ $sp->id }}, '{{ $sp->judul }}')">
+                                                            Delete
+                                                        </button>
+
+                                                        <!-- Formulir Penghapusan Tersembunyi -->
+                                                        <form id="delete-form-{{ $sp->id }}"
+                                                            action="{{ route('sp.fitur.destroy', ['id' => $sp->id]) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>

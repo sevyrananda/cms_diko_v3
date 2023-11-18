@@ -14,7 +14,7 @@
                                 </button>
                             </div>
                         @endif
-                        <div class="card">
+                        {{-- <div class="card">
                             <div class="card-header">
                                 <h4>Produk</h4>
                             </div>
@@ -115,6 +115,75 @@
                                             </li>
                                         </ul>
                                     </nav>
+                                </div>
+                            </div>
+                        </div> --}}
+
+                        {{-- Datatables --}}
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Produk</h4>
+                            </div>
+                            <div class="card-body">
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#createModal"><i class="fas fa-plus"></i>
+                                    Create New
+                                </button>
+                                <a href="{{ route('pagelanding.preview') }}" class="btn btn-success"><i
+                                        class="fas fa-eye"></i>Landing Utama</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped" id="table-1">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">No</th>
+                                                <th class="text-center">Nama Produk</th>
+                                                <th class="text-center">Pilihan Layout</th>
+                                                <th class="text-center">Action</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $no = 1;
+                                            @endphp
+                                            @foreach ($products as $product)
+                                                <tr>
+                                                    <td>{{ $no++ }}</td>
+                                                    <td>{{ $product->nama_produk }}</td>
+                                                    <td>{{ $product->preview_selection }}<td>
+                                                        <div class="d-flex justify-content">
+                                                            @if ($product->preview_selection === 'preview_pos')
+                                                                <a href="{{ route('produk.preview', ['id' => $product->id, 'selection' => 'preview_pos']) }}"
+                                                                    class="btn btn-success">Preview</a>
+                                                            @elseif ($product->preview_selection === 'preview_sp')
+                                                                <a href="{{ route('produk.preview', ['id' => $product->id, 'selection' => 'preview_sp']) }}"
+                                                                    class="btn btn-success">Preview</a>
+                                                            @endif
+
+                                                            <button type="submit" class="btn btn-warning"
+                                                                style="margin-left: 5px;" data-toggle="modal"
+                                                                data-target="#editModal{{ $product->id }}">Edit</button>
+                                                            <button type="button" class="btn btn-danger"
+                                                                style="margin-left: 5px;"
+                                                                onclick="deletePost({{ $product->id }}, '{{ $product->judul }}')">
+                                                                Delete
+                                                            </button>
+
+                                                            <!-- Formulir Penghapusan Tersembunyi -->
+                                                            <form id="delete-form-{{ $product->id }}"
+                                                                action="{{ route('produk.destroy', ['id' => $product->id]) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                            </form>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>

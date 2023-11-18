@@ -11,12 +11,12 @@ class FiturLanding extends Model
 
     protected $table = 'fitur_landing';
 
-    protected $primaryKey = 'id_fitur';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     public $timestamps = true;
 
     protected $fillable = [
-        'id_fitur',
+        'id',
         'judul',
         'isi',
         'icon',

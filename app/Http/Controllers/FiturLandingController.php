@@ -50,7 +50,7 @@ class FiturLandingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id_fitur)
+    public function show($id)
     {
         $posts = FiturLanding::all();
         $pos = FiturPos::all();
@@ -58,12 +58,10 @@ class FiturLandingController extends Controller
         return view('pages.landing.fitur.show', compact('posts', 'pos', 'pos2'));
     }
 
-    public function preview()
+    public function preview($id)
     {
-        $posts = FiturLanding::all();
-        $faq = FaqLanding::all();
-        $products = Produk::all();
-        return view('pages.landing.fitur.preview', compact('posts', 'faq', 'products'));
+        $posts = FiturLanding::find($id);
+        return view('pages.landing.fitur.preview', compact('posts'));
     }
 
     /**
@@ -78,7 +76,7 @@ class FiturLandingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id_fitur)
+    public function update(Request $request, $id)
     {
         // Validasi data
         $validatedData = $request->validate([
@@ -88,7 +86,7 @@ class FiturLandingController extends Controller
         ]);
 
         // Temukan data post berdasarkan ID
-        $post = FiturLanding::find($id_fitur);
+        $post = FiturLanding::find($id);
 
         if ($request->has('edit_judul')) {
             $post->judul = $request->input('edit_judul');

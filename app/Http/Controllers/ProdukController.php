@@ -10,6 +10,7 @@ use App\Models\FiturSp;
 use App\Models\FiturSp2;
 use App\Models\PricingSp;
 use App\Models\PricingPos;
+use App\Models\FaqLanding;
 use App\Models\FaqSp;
 use Illuminate\Http\Request;
 
@@ -60,13 +61,13 @@ class ProdukController extends Controller
         return view('pages.produk.list', compact('product'));
     }
 
-    // public function previewPos($id)
-    // {
-    //     $product = Produk::find($id);
-    //     $pos = FiturPos::all();
-    //     $pos2 = FiturPos2::all();
-    //     return view('pages.produk.preview_pos', compact('product', 'pos', 'pos2'));
-    // }
+    public function landing()
+    {
+        $posts = FiturLanding::all();
+        $faq = FaqLanding::all();
+        $products = Produk::all();
+        return view('pages.produk.landing', compact('posts', 'faq', 'products'));
+    }
 
     public function preview($id, $selection)
     {

@@ -34,15 +34,10 @@
                             </div>
 
                             <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <p>29 September 2023</p>
-                                    <p><i>Create by {{ $post->author_name }}</i></p>
-                                </div>
-                                <h4>{{ $post->nama_pricingsp }}</h4>
-                                <h6>Rp. {{ $post->harga_pricingsp }},-</h6>
-                                <p>{!! $post->deskripsi_pricingsp !!}</p>
+                                <h4>{{ $pricing->nama_pricingsp }}</h4>
+                                <h6>Rp. {{ $pricing->harga_pricingsp }},-</h6>
+                                <p>{!! $pricing->deskripsi_pricingsp !!}</p>
                                 <hr>
-                                <p style="text-align: right;"><a href="" class="btn btn-primary">Read More</a></p>
                             </div>
                         </div>
                     </div>

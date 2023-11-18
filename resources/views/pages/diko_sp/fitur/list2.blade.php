@@ -16,9 +16,9 @@
                         @endif
 
                         {{-- Fitur Section 2 --}}
-                        <div class="card">
+                        {{-- <div class="card">
                             <div class="card-header">
-                                <h4>Fitur Section 2</h4>
+                                <h4>Fitur Section 2.1</h4>
                             </div>
                             <div class="card-body">
                                 <div class="float-left">
@@ -57,15 +57,15 @@
                                             @php
                                                 $no = 1;
                                             @endphp
-                                            @foreach ($fitur2  as $pos2)
+                                            @foreach ($fitur2 as $pos2)
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
-                                                    <td>{{ $pos2->icon2 }}</td>
-                                                    <td>{{ $pos2->judul_icon2 }}</td>
-                                                    <td>{{ $pos2->isi }}</td>
+                                                    <td>{{ $sp2->icon2 }}</td>
+                                                    <td>{{ $sp2->judul_icon2 }}</td>
+                                                    <td>{{ $sp2->isi }}</td>
                                                     <td>
-                                                        @if ($pos2->image)
-                                                            <img src="{{ asset('storage/' . $pos2->image) }}" alt="Image"
+                                                        @if ($sp2->image)
+                                                            <img src="{{ asset('storage/' . $sp2->image) }}" alt="Image"
                                                                 style="max-width: 100px;">
                                                         @else
                                                             No Image
@@ -73,19 +73,19 @@
                                                     </td>
                                                     <td>
                                                         <div class="d-flex justify-content">
-                                                            <a href="{{ route('sp.fitur2.preview', ['id' => $pos2->id]) }}" class="btn btn-primary">Preview</a>
+                                                            <a href="{{ route('sp.fitur2.preview', ['id' => $sp2->id]) }}" class="btn btn-primary">Preview</a>
                                                             <button type="submit" class="btn btn-warning"
                                                                 style="margin-left: 5px;" data-toggle="modal"
-                                                                data-target="#editModal{{ $pos2->id }}">Edit</button>
+                                                                data-target="#editModal{{ $sp2->id }}">Edit</button>
                                                             <button type="button" class="btn btn-danger"
                                                                 style="margin-left: 5px;"
-                                                                onclick="deletePost2({{ $pos2->id }}, '{{ $pos2->judul }}')">
+                                                                onclick="deletePost2({{ $sp2->id }}, '{{ $sp2->judul }}')">
                                                                 Delete
                                                             </button>
 
                                                             <!-- Formulir Penghapusan Tersembunyi -->
-                                                            <form id="delete-form-{{ $pos2->id }}"
-                                                                action="{{ route('sp.fitur2.destroy', ['id' => $pos2->id]) }}"
+                                                            <form id="delete-form-{{ $sp2->id }}"
+                                                                action="{{ route('sp.fitur2.destroy', ['id' => $sp2->id]) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -125,7 +125,82 @@
                                     </nav>
                                 </div>
                             </div>
+                        </div> --}}
+
+                        {{-- Datatables --}}
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Fitur Section 2 Layout 2</h4>
+                            </div>
+                            <div class="card-body">
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#createModal2"><i class="fas fa-plus"></i>
+                                    Create New
+                                </button>
+                                {{-- <a href="{{ route('sp.fitur2.preview') }}" class="btn btn-success"><i
+                                        class="fas fa-eye"></i>Preview</a> --}}
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped" id="table-1">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">No</th>
+                                                <th class="text-center">Icon</th>
+                                                <th class="text-center">Judul Icon</th>
+                                                <th class="text-center">Isi</th>
+                                                <th class="text-center">Image</th>
+                                                <th class="text-center">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $no = 1;
+                                            @endphp
+                                            @foreach ($fitur2 as $sp2)
+                                                <tr>
+                                                    <td>{{ $no++ }}</td>
+                                                    <td>{{ $sp2->icon2 }}</td>
+                                                    <td>{{ $sp2->judul_icon2 }}</td>
+                                                    <td>{{ $sp2->isi }}</td>
+                                                    <td>
+                                                        @if ($sp2->image)
+                                                            <img src="{{ asset('storage/' . $sp2->image) }}" alt="Image"
+                                                                style="max-width: 100px;">
+                                                        @else
+                                                            No Image
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex justify-content">
+                                                            <a href="{{ route('sp.fitur2.preview', ['id' => $sp2->id]) }}"
+                                                                class="btn btn-success">Preview</a>
+                                                            <button type="submit" class="btn btn-warning"
+                                                                style="margin-left: 5px;" data-toggle="modal"
+                                                                data-target="#editModal{{ $sp2->id }}">Edit</button>
+                                                            <button type="button" class="btn btn-danger"
+                                                                style="margin-left: 5px;"
+                                                                onclick="deletePost({{ $sp2->id }}, '{{ $sp2->judul }}')">
+                                                                Delete
+                                                            </button>
+
+                                                            <!-- Formulir Penghapusan Tersembunyi -->
+                                                            <form id="delete-form-{{ $sp2->id }}"
+                                                                action="{{ route('sp.fitur2.destroy', ['id' => $sp2->id]) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                            </form>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>

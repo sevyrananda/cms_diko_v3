@@ -2,17 +2,6 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>DIKO</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="{{url('HeroBiz')}}/assets/img/DIKO TRANSPARANT.png" rel="icon">
-  <link href="{{url('HeroBiz')}}/assets/img/DIKO TRANSPARANT.png" rel="apple-touch-icon">
-
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,12 +16,6 @@
 
   <!-- Variables CSS Files. Uncomment your preferred color scheme -->
   <link href="{{url('HeroBiz')}}/assets/css/variables.css" rel="stylesheet">
-  <!-- <link href="{{url('HeroBiz')}}/assets/css/variables-blue.css" rel="stylesheet"> -->
-  <!-- <link href="{{url('HeroBiz')}}/assets/css/variables-green.css" rel="stylesheet"> -->
-  <!-- <link href="{{url('HeroBiz')}}/assets/css/variables-orange.css" rel="stylesheet"> -->
-  <!-- <link href="{{url('HeroBiz')}}/assets/css/variables-purple.css" rel="stylesheet"> -->
-  <!-- <link href="{{url('HeroBiz')}}/assets/css/variables-red.css" rel="stylesheet"> -->
-  <!-- <link href="{{url('HeroBiz')}}/assets/css/variables-pink.css" rel="stylesheet"> -->
 
   <!-- Template Main CSS File -->
   <link href="{{url('HeroBiz')}}/assets/css/main.css" rel="stylesheet">
@@ -43,9 +26,8 @@
 </head>
 
 <body>
+  @yield('content')
 
-
-  <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
   <script src="{{url('HeroBiz')}}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

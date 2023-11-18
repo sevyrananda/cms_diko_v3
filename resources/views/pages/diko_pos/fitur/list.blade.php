@@ -4,6 +4,20 @@
     <div class="main-content">
         <section class="section">
             <div class="section-body">
+                {{-- <div class="row">
+                    <div class="col-12">
+                        <div class="card mb-0">
+                            <div class="card-body">
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#createModal"><i class="fas fa-plus"></i>
+                                    Create New
+                                </button>
+                                <a href="{{ route('pos.fitur.preview') }}" class="btn btn-success"><i
+                                        class="fas fa-eye"></i>Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
                 <div class="row mt-4">
                     <div class="col-12">
                         @if (session('success'))
@@ -14,32 +28,37 @@
                                 </button>
                             </div>
                         @endif
+
+
                         {{-- Fitur Section 1 --}}
-                        <div class="card">
+                        {{-- <div class="card">
                             <div class="card-header">
                                 <h4>Fitur Section 1</h4>
                             </div>
                             <div class="card-body">
-                                <div class="float-left">
-                                    <!-- Button to trigger modal -->
-                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#createModal"><i class="fas fa-plus"></i>
-                                        Create New Fitur Section 1
-                                    </button>
-                                    <a href="{{ route('pos.fitur.preview') }}"  class="btn btn-success"><i class="fas fa-eye"></i>
-                                        Preview in Website</a>
-                                </div>
-                                <div class="float-right">
-                                    <form>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+
+                                <div class="clearfix mb-3">
+                                    <div class="float-left">
+                                        <!-- Button to trigger modal -->
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#createModal"><i class="fas fa-plus"></i>
+                                            Create New
+                                        </button>
+                                        <a href="{{ route('pos.fitur.preview') }}" class="btn btn-success"><i
+                                                class="fas fa-eye"></i>
+                                            Preview</a>
+                                    </div>
+                                    <div class="float-right">
+                                        <form>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Search">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
-                                <div class="clearfix mb-3"></div>
                                 <div class="table-responsive">
                                     <table class="table table-striped">
                                         <thead>
@@ -74,7 +93,8 @@
                                                     </td>
                                                     <td>
                                                         <div class="d-flex justify-content">
-                                                            <a href="{{ route('pos.fitur.preview', ['id' => $pos->id]) }}" class="btn btn-primary">Preview</a>
+                                                            <a href="{{ route('pos.fitur.preview', ['id' => $pos->id]) }}"
+                                                                class="btn btn-primary">Preview</a>
                                                             <button type="submit" class="btn btn-warning"
                                                                 style="margin-left: 5px;" data-toggle="modal"
                                                                 data-target="#editModal{{ $pos->id }}">Edit</button>
@@ -126,6 +146,82 @@
                                     </nav>
                                 </div>
                             </div>
+                        </div> --}}
+
+                        {{-- Datatables --}}
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Fitur Section 1 Layout 1</h4>
+                            </div>
+                            <div class="card-body">
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#createModal"><i class="fas fa-plus"></i>
+                                    Create New
+                                </button>
+                                {{-- <a href="{{ route('pos.fitur.preview') }}" class="btn btn-success"><i
+                                        class="fas fa-eye"></i>Preview</a> --}}
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped" id="table-1">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">No</th>
+                                                <th class="text-center">Icon</th>
+                                                <th class="text-center">Judul Icon</th>
+                                                <th class="text-center">Judul Detail</th>
+                                                <th class="text-center">Isi Detail</th>
+                                                <th class="text-center">Image</th>
+                                                <th class="text-center">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $no = 1;
+                                            @endphp
+                                            @foreach ($posts as $pos)
+                                                <tr>
+                                                    <td>{{ $no++ }}</td>
+                                                    <td>{{ $pos->icon1 }}</td>
+                                                    <td>{{ $pos->judul_icon1 }}</td>
+                                                    <td>{{ $pos->judul_detail }}</td>
+                                                    <td>{{ $pos->isi_detail }}</td>
+                                                    <td>
+                                                        @if ($pos->image)
+                                                            <img src="{{ asset('storage/' . $pos->image) }}" alt="Image"
+                                                                style="max-width: 100px;">
+                                                        @else
+                                                            No Image
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex justify-content">
+                                                            <a href="{{ route('pos.fitur.preview', ['id' => $pos->id]) }}"
+                                                                class="btn btn-success">Preview</a>
+                                                            <button type="submit" class="btn btn-warning"
+                                                                style="margin-left: 5px;" data-toggle="modal"
+                                                                data-target="#editModal{{ $pos->id }}">Edit</button>
+                                                            <button type="button" class="btn btn-danger"
+                                                                style="margin-left: 5px;"
+                                                                onclick="deletePost({{ $pos->id }}, '{{ $pos->judul }}')">
+                                                                Delete
+                                                            </button>
+
+                                                            <!-- Formulir Penghapusan Tersembunyi -->
+                                                            <form id="delete-form-{{ $pos->id }}"
+                                                                action="{{ route('pos.fitur.destroy', ['id' => $pos->id]) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                            </form>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -133,6 +229,7 @@
             </div>
         </section>
     </div>
+
 
     <script>
         function deletePost(id, judul) {

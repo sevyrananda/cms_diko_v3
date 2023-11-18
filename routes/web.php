@@ -36,8 +36,8 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
-Route::get('/landing', [FiturLandingController::class, 'preview'])->name('landing.preview');
-Route::get('/produk/pos/preview/{id}', [ProdukController::class, 'previewPos'])->name('produk.preview');
+Route::get('/landing', [ProdukController::class, 'landing'])->name('pagelanding.preview');
+Route::get('/produk/preview/{id}/{selection}', [ProdukController::class, 'preview'])->name('produk.preview');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -58,7 +58,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/produk/destroy/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
     Route::get('/produk/edit/{id}', [ProdukController::class, 'edit'])->name('produk.edit');
     Route::put('/produk/update/{id}', [ProdukController::class, 'update'])->name('produk.update');
-    Route::get('/produk/preview/{id}/{selection}', [ProdukController::class, 'preview'])->name('produk.preview');
 
 
     //Landing Page - Fitur
@@ -67,7 +66,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/landing/post/{id}', [FiturLandingController::class, 'destroy'])->name('landing.destroy');
     Route::get('/landing/edit/{id}', [FiturLandingController::class, 'edit'])->name('landing.edit');
     Route::put('/landing/update/{id}', [FiturLandingController::class, 'update'])->name('landing.update');
-    Route::get('/landing/show/{id}', [FiturLandingController::class, 'show'])->name('landing.show');
+    Route::get('/landing/preview/{id}', [FiturLandingController::class, 'preview'])->name('landing.preview');
 
     //Landing Page - Faq
     Route::get('/faq', [FaqLandingController::class, 'index'])->name('faq');
@@ -83,17 +82,18 @@ Route::group(['middleware' => 'auth'], function () {
     //section 1
     Route::get('/pos/fitur/list', [FiturPosController::class, 'index'])->name('pos.fitur');
     Route::post('/pos/fitur/store', [FiturPosController::class, 'store'])->name('pos.fitur.store');
-    Route::delete('/pos/fitur/{id}', [FiturPosController::class, 'destroy'])->name('pos.fitur.destroy');
     Route::get('/pos/fitur/edit/{id}', [FiturPosController::class, 'edit'])->name('pos.fitur.edit');
     Route::put('/pos/fitur/update/{id}', [FiturPosController::class, 'update'])->name('pos.fitur.update');
-    Route::get('/pos/fitur/preview/', [FiturPosController::class, 'preview'])->name('pos.fitur.preview');
+    Route::get('/pos/fitur/preview/{id}', [FiturPosController::class, 'preview'])->name('pos.fitur.preview');
+    Route::delete('/pos/fitur/destroy/{id}', [FiturPosController::class, 'destroy'])->name('pos.fitur.destroy');
+
     //section 2
     Route::get('/pos/fitur2/list', [FiturPos2Controller::class, 'index'])->name('pos.fitur2');
     Route::post('/pos/fitur2/store', [FiturPos2Controller::class, 'store'])->name('pos.fitur2.store');
-    Route::delete('/pos/fitur2/{id}', [FiturPos2Controller::class, 'destroy'])->name('pos.fitur2.destroy');
     Route::get('/pos/fitur2/edit/{id}', [FiturPos2Controller::class, 'edit'])->name('pos.fitur2.edit');
     Route::put('/pos/fitur2/update/{id}', [FiturPos2Controller::class, 'update'])->name('pos.fitur2.update');
-    Route::get('/pos/fitur2/preview/', [FiturPos2Controller::class, 'preview'])->name('pos.fitur2.preview');
+    Route::get('/pos/fitur2/preview2/{id}', [FiturPos2Controller::class, 'preview'])->name('pos.fitur2.preview');
+    Route::delete('/pos/fitur2/destroy/{id}', [FiturPos2Controller::class, 'destroy'])->name('pos.fitur2.destroy');
 
     //DIKO POS - Pricing
     Route::get('/pos/pricing/list', [PricingPosController::class, 'index'])->name('pospricing');
@@ -118,17 +118,17 @@ Route::group(['middleware' => 'auth'], function () {
     //section 1
     Route::get('/sp/fitur/list', [FiturSpController::class, 'index'])->name('sp.fitur');
     Route::post('/sp/fitur/store', [FiturSpController::class, 'store'])->name('sp.fitur.store');
-    Route::delete('/sp/fitur/{id}', [FiturSpController::class, 'destroy'])->name('sp.fitur.destroy');
     Route::get('/sp/fitur/edit/{id}', [FiturSpController::class, 'edit'])->name('sp.fitur.edit');
     Route::put('/sp/fitur/update/{id}', [FiturSpController::class, 'update'])->name('sp.fitur.update');
-    Route::get('/sp/fitur/preview/', [FiturSpController::class, 'preview'])->name('sp.fitur.preview');
+    Route::get('/sp/fitur/preview/{id}', [FiturSpController::class, 'preview'])->name('sp.fitur.preview');
+    Route::delete('/sp/fitur/destroy/{id}', [FiturSpController::class, 'destroy'])->name('sp.fitur.destroy');
     //section 2
     Route::get('/sp/fitur2/list', [FiturSp2Controller::class, 'index'])->name('sp.fitur2');
     Route::post('/sp/fitur2/store', [FiturSp2Controller::class, 'store'])->name('sp.fitur2.store');
-    Route::delete('/sp/fitur2/{id}', [FiturSp2Controller::class, 'destroy'])->name('sp.fitur2.destroy');
     Route::get('/sp/fitur2/edit/{id}', [FiturSp2Controller::class, 'edit'])->name('sp.fitur2.edit');
     Route::put('/sp/fitur2/update/{id}', [FiturSp2Controller::class, 'update'])->name('sp.fitur2.update');
-    Route::get('/sp/fitur2/preview/', [FiturSp2Controller::class, 'preview'])->name('sp.fitur2.preview');
+    Route::get('/sp/fitur2/preview/{id}', [FiturSp2Controller::class, 'preview'])->name('sp.fitur2.preview');
+    Route::delete('/sp/fitur2/destroy/{id}', [FiturSp2Controller::class, 'destroy'])->name('sp.fitur2.destroy');
 
     //DIKO SP - Plugin
     Route::get('/sp/plugin/list', [PluginSpController::class, 'index'])->name('spPlugin');

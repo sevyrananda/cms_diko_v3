@@ -45,10 +45,10 @@ class FiturSp2Controller extends Controller
         return view('pages.diko_sp.fitur.list2', compact('fitur2'));
     }
 
-    public function preview()
+    public function preview($id)
     {
-        $fitur2 = FiturSp2::all();
-        return view('pages.diko_pos.fitur.preview', compact('fitur2'));
+        $fitur2 = FiturSp2::find($id);
+        return view('pages.diko_sp.fitur.preview2', compact('fitur2'));
     }
 
     // public function edit($id)

@@ -4,7 +4,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-body">
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-12">
                         <div class="card mb-0">
                             <div class="card-body">
@@ -29,7 +29,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="row mt-4">
                     <div class="col-12">
                         @if (session('success'))
@@ -40,7 +40,8 @@
                                 </button>
                             </div>
                         @endif
-                        <div class="card">
+
+                        {{-- <div class="card">
                             <div class="card-header">
                                 <h4>All FAQ</h4>
                             </div>
@@ -84,14 +85,14 @@
                                                     <td>{{ $no++ }}</td>
                                                     <td>{{ $post->question }}</td>
                                                     <td>{{ $post->answer }}</td>
-                                                    {{-- <td>
+                                                    <td>
                                                         @if ($post->image)
                                                             <img src="{{ asset('storage/' . $post->image) }}" alt="Image"
                                                                 style="max-width: 100px;">
                                                         @else
                                                             No Image
                                                         @endif
-                                                    </td> --}}
+                                                    </td>
                                                     <td>
                                                         <div class="d-flex justify-content">
                                                             <a href="{{ route('sp.preview', ['id' => $post->id]) }}" class="btn btn-primary">Preview</a>
@@ -144,6 +145,71 @@
                                             </li>
                                         </ul>
                                     </nav>
+                                </div>
+                            </div>
+                        </div> --}}
+
+                        {{-- Datatables --}}
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Faq Produk Layout 2</h4>
+                            </div>
+                            <div class="card-body">
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#createModal"><i class="fas fa-plus"></i>
+                                        Create New
+                                    </button>
+                                    {{-- <a href="{{ route('sp.previewall') }}"  class="btn btn-success"><i class="fas fa-eye"></i>
+                                        Preview</a> --}}
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped" id="table-1">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">No</th>
+                                                <th class="text-center">Question</th>
+                                                <th class="text-center">Answer</th>
+                                                <th class="text-center">Action</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $no = 1;
+                                            @endphp
+                                            @foreach ($faq as $f)
+                                                <tr>
+                                                    <td>{{ $no++ }}</td>
+                                                    <td>{{ $f->question }}</td>
+                                                    <td>{{ $f->answer }}
+                                                    <td>
+                                                        <div class="d-flex justify-content">
+
+                                                            <a href="{{ route('sp.preview', ['id' => $f->id]) }}" class="btn btn-success">Preview</a>
+                                                            <button type="submit" class="btn btn-warning"
+                                                                style="margin-left: 10px;" data-toggle="modal"
+                                                                data-target="#editModal{{ $f->id }}">Edit</button>
+                                                            <button type="button" class="btn btn-danger"
+                                                                style="margin-left: 10px;"
+                                                                onclick="deletePost({{ $f->id }}, '{{ $f->name }}')">
+                                                                Delete
+                                                            </button>
+
+                                                            <!-- Formulir Penghapusan Tersembunyi -->
+                                                            <form id="delete-form-{{ $f->id }}"
+                                                                action="{{ route('sp.destroy', ['id' => $f->id]) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <!-- Your other form elements go here -->
+                                                            </form>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>

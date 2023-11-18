@@ -14,7 +14,8 @@
                                 </button>
                             </div>
                         @endif
-                        <div class="card">
+
+                        {{-- <div class="card">
                             <div class="card-header">
                                 <h4>All FAQ</h4>
                             </div>
@@ -110,6 +111,71 @@
                                             </li>
                                         </ul>
                                     </nav>
+                                </div>
+                            </div>
+                        </div> --}}
+
+                        {{-- Datatables --}}
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Faq Landing</h4>
+                            </div>
+                            <div class="card-body">
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#createModal"><i class="fas fa-plus"></i>
+                                        Create New
+                                    </button>
+                                    <a href="{{ route('previewall') }}"  class="btn btn-success"><i class="fas fa-eye"></i>
+                                        Preview</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped" id="table-1">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">No</th>
+                                                <th class="text-center">Question</th>
+                                                <th class="text-center">Answer</th>
+                                                <th class="text-center">Action</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $no = 1;
+                                            @endphp
+                                            @foreach ($faq as $f)
+                                                <tr>
+                                                    <td>{{ $no++ }}</td>
+                                                    <td>{{ $f->question }}</td>
+                                                    <td>{{ $f->answer }}
+                                                    <td>
+                                                        <div class="d-flex justify-content">
+
+                                                            <a href="{{ route('faq.preview', ['id' => $f->id]) }}" class="btn btn-primary">Show</a>
+                                                            <button type="submit" class="btn btn-warning"
+                                                                style="margin-left: 10px;" data-toggle="modal"
+                                                                data-target="#editModal{{ $f->id }}">Edit</button>
+                                                            <button type="button" class="btn btn-danger"
+                                                                style="margin-left: 10px;"
+                                                                onclick="deletePost({{ $f->id }}, '{{ $f->name }}')">
+                                                                Delete
+                                                            </button>
+
+                                                            <!-- Formulir Penghapusan Tersembunyi -->
+                                                            <form id="delete-form-{{ $f->id }}"
+                                                                action="{{ route('destroy', ['id' => $f->id]) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <!-- Your other form elements go here -->
+                                                            </form>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>

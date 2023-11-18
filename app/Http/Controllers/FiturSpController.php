@@ -41,15 +41,9 @@ class FiturSpController extends Controller
         return redirect('/sp/fitur/list')->with('success', 'Fitur Section 1 Berhasil Ditambahkan.');
     }
 
-    public function show($id)
+    public function preview($id)
     {
-        $fitur = FiturSp::all();
-        return view('pages.diko_sp.fitur.list', compact('fitur'));
-    }
-
-    public function preview()
-    {
-        $fitur = FiturSp::all();
+        $fitur = FiturSp::find($id);
         return view('pages.diko_sp.fitur.preview', compact('fitur'));
     }
 

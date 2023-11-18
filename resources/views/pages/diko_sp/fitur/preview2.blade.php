@@ -7,14 +7,14 @@
                     <div class="col-lg-6 col-md-8 col-sm-12">
                         <div class="card">
                             <div class="card-header" style="margin-top: 15px;">
-                                {{-- <div class="zoomable-image-container">
-                                    @if ($post->image)
+                                <div class="zoomable-image-container">
+                                    @if ($fitur2->image)
                                         <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->judul }}"
                                             class="zoomable-image" style="max-width: 100%;">
                                     @else
                                         <p>No Image</p>
                                     @endif
-                                </div> --}}
+                                </div>
                                 <style>
                                     .zoomable-image-container {
                                         max-height: 100%;
@@ -38,9 +38,9 @@
                                     {{-- <p>{{ $post->id }}</p> --}}
                                     {{-- <p><i>Create by {{ $post->author_name }}</i></p> --}}
                                 </div>
-                                <h4>{{ $pricings->nama_pricingpos }}</h4>
-                                <h6>Rp. {{ $pricings->harga_pricingpos }},-</h6>
-                                <div>{!! $pricings->deskripsi_pricingpos !!}</div>
+                                <i>{{ $fitur2->icon2 }}</i>
+                                <h6>{{ $fitur2->judul_icon2 }}</h6>
+                                <p>{{ $fitur2->isi }}</p>
                                 <hr>
                             </div>
                         </div>
@@ -50,3 +50,4 @@
         </section>
     </div>
 @endsection
+

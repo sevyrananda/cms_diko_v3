@@ -38,9 +38,8 @@
                                     {{-- <p>{{ $post->id }}</p> --}}
                                     {{-- <p><i>Create by {{ $post->author_name }}</i></p> --}}
                                 </div>
-                                <h4>{{ $pricings->nama_pricingpos }}</h4>
-                                <h6>Rp. {{ $pricings->harga_pricingpos }},-</h6>
-                                <div>{!! $pricings->deskripsi_pricingpos !!}</div>
+                                <i>{{ $fitur->icon1 }}</i>
+                                <h6>{{ $fitur->judul_icon1 }}</h6>
                                 <hr>
                             </div>
                         </div>
@@ -50,3 +49,4 @@
         </section>
     </div>
 @endsection
+
