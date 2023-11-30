@@ -49,7 +49,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/destroyUser/{id}', [DataUserController::class, 'destroy'])->name('destroyUser');
     Route::get('/editUser/{id}', [DataUserController::class, 'edit'])->name('editUser');
     Route::put('/updateUser/{id}', [DataUserController::class, 'update'])->name('updateUser');
-    Route::get('/previewUser/{id}', [DataUserController::class, 'preview'])->name('previewUser');
+    // Route::get('/previewUser/{id}', [DataUserController::class, 'preview'])->name('previewUser');
 
 
     #produk
@@ -66,7 +66,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/landing/post/{id}', [FiturLandingController::class, 'destroy'])->name('landing.destroy');
     Route::get('/landing/edit/{id}', [FiturLandingController::class, 'edit'])->name('landing.edit');
     Route::put('/landing/update/{id}', [FiturLandingController::class, 'update'])->name('landing.update');
-    Route::get('/landing/preview/{id}', [FiturLandingController::class, 'preview'])->name('landing.preview');
+    // Route::get('/landing/preview/{id}', [FiturLandingController::class, 'preview'])->name('landing.preview');
 
     //Landing Page - Faq
     Route::get('/faq', [FaqLandingController::class, 'index'])->name('faq');
@@ -74,7 +74,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/posts/{id}', [FaqLandingController::class, 'destroy'])->name('destroy');
     Route::get('/edit/{id}', [FaqLandingController::class, 'edit'])->name('edit');
     Route::put('/update/{id}', [FaqLandingController::class, 'update'])->name('update');
-    Route::get('/preview/{id}', [FaqLandingController::class, 'preview'])->name('faq.preview');
+    // Route::get('/preview/{id}', [FaqLandingController::class, 'preview'])->name('faq.preview');
 
 
     //DIKO POS - fitur
@@ -83,7 +83,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/pos/fitur/store', [FiturPosController::class, 'store'])->name('pos.fitur.store');
     Route::get('/pos/fitur/edit/{id}', [FiturPosController::class, 'edit'])->name('pos.fitur.edit');
     Route::put('/pos/fitur/update/{id}', [FiturPosController::class, 'update'])->name('pos.fitur.update');
-    Route::get('/pos/fitur/preview/{id}', [FiturPosController::class, 'preview'])->name('pos.fitur.preview');
+    // Route::get('/pos/fitur/preview/{id}', [FiturPosController::class, 'preview'])->name('pos.fitur.preview');
     Route::delete('/pos/fitur/destroy/{id}', [FiturPosController::class, 'destroy'])->name('pos.fitur.destroy');
 
     //section 2
@@ -91,7 +91,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/pos/fitur2/store', [FiturPos2Controller::class, 'store'])->name('pos.fitur2.store');
     Route::get('/pos/fitur2/edit/{id}', [FiturPos2Controller::class, 'edit'])->name('pos.fitur2.edit');
     Route::put('/pos/fitur2/update/{id}', [FiturPos2Controller::class, 'update'])->name('pos.fitur2.update');
-    Route::get('/pos/fitur2/preview2/{id}', [FiturPos2Controller::class, 'preview'])->name('pos.fitur2.preview');
+    // Route::get('/pos/fitur2/preview2/{id}', [FiturPos2Controller::class, 'preview'])->name('pos.fitur2.preview');
     Route::delete('/pos/fitur2/destroy/{id}', [FiturPos2Controller::class, 'destroy'])->name('pos.fitur2.destroy');
 
     //DIKO POS - Pricing
@@ -100,7 +100,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/pos/posts/{id}', [PricingPosController::class, 'destroy'])->name('pospricing.destroy');
     Route::get('/pos/edit/{id}', [PricingPosController::class, 'edit'])->name('pospricing.edit');
     Route::put('/pos/update/{id}', [PricingPosController::class, 'update'])->name('pospricing.update');
-    Route::get('/pos/preview/{id}', [PricingPosController::class, 'preview'])->name('pospricing.preview');
+    // Route::get('/pos/preview/{id}', [PricingPosController::class, 'preview'])->name('pospricing.preview');
 
     //DIKO POS - Plugin
     Route::get('/pos/plugin/list', [PluginPosController::class, 'index'])->name('posPlugin');
@@ -108,7 +108,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/destroyPos/{id}', [PluginPosController::class, 'destroy'])->name('destroyPos');
     Route::get('/editPos/{id}', [PluginPosController::class, 'edit'])->name('editPos');
     Route::put('/updatePos/{id}', [PluginPosController::class, 'update'])->name('updatePos');
-    Route::get('/previewPos/{id}', [PluginPosController::class, 'preview'])->name('previewPos');
+    // Route::get('/previewPos/{id}', [PluginPosController::class, 'preview'])->name('previewPos');
 
 
     //DIKO SP - Fitur
@@ -117,14 +117,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/sp/fitur/store', [FiturSpController::class, 'store'])->name('sp.fitur.store');
     Route::get('/sp/fitur/edit/{id}', [FiturSpController::class, 'edit'])->name('sp.fitur.edit');
     Route::put('/sp/fitur/update/{id}', [FiturSpController::class, 'update'])->name('sp.fitur.update');
-    Route::get('/sp/fitur/preview/{id}', [FiturSpController::class, 'preview'])->name('sp.fitur.preview');
+    // Route::get('/sp/fitur/preview/{id}', [FiturSpController::class, 'preview'])->name('sp.fitur.preview');
     Route::delete('/sp/fitur/destroy/{id}', [FiturSpController::class, 'destroy'])->name('sp.fitur.destroy');
     //section 2
     Route::get('/sp/fitur2/list', [FiturSp2Controller::class, 'index'])->name('sp.fitur2');
     Route::post('/sp/fitur2/store', [FiturSp2Controller::class, 'store'])->name('sp.fitur2.store');
     Route::get('/sp/fitur2/edit/{id}', [FiturSp2Controller::class, 'edit'])->name('sp.fitur2.edit');
     Route::put('/sp/fitur2/update/{id}', [FiturSp2Controller::class, 'update'])->name('sp.fitur2.update');
-    Route::get('/sp/fitur2/preview/{id}', [FiturSp2Controller::class, 'preview'])->name('sp.fitur2.preview');
+    // Route::get('/sp/fitur2/preview/{id}', [FiturSp2Controller::class, 'preview'])->name('sp.fitur2.preview');
     Route::delete('/sp/fitur2/destroy/{id}', [FiturSp2Controller::class, 'destroy'])->name('sp.fitur2.destroy');
 
     //DIKO SP - Plugin
@@ -133,7 +133,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/destroySp/{id}', [PluginSpController::class, 'destroy'])->name('destroySp');
     Route::get('/editSp/{id}', [PluginSpController::class, 'edit'])->name('editSp');
     Route::put('/updateSp/{id}', [PluginSpController::class, 'update'])->name('updateSp');
-    Route::get('/previewSp/{id}', [PluginSpController::class, 'preview'])->name('previewSp');
+    // Route::get('/previewSp/{id}', [PluginSpController::class, 'preview'])->name('previewSp');
 
     //DIKO SP - Pricing
     Route::get('/sp/pricing/list', [PricingSpController::class, 'index'])->name('sppricing');
@@ -141,7 +141,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/sp//pricing/posts/{id}', [PricingSpController::class, 'destroy'])->name('sppricing.destroy');
     Route::get('/sp/edit/{id}', [PricingSpController::class, 'edit'])->name('sppricing.edit');
     Route::put('/sp/update/{id}', [PricingSpController::class, 'update'])->name('sppricing.update');
-    Route::get('/sp/preview/{id}', [PricingSpController::class, 'preview'])->name('sppricing.preview');
+    // Route::get('/sp/preview/{id}', [PricingSpController::class, 'preview'])->name('sppricing.preview');
 
     //DIKO SP - Faq
     Route::get('/sp/faq/list', [FaqSpController::class, 'index'])->name('sp.faq');
@@ -149,5 +149,10 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/sp/posts/{id}', [FaqSpController::class, 'destroy'])->name('sp.destroy');
     Route::get('/sp/edit/{id}', [FaqSpController::class, 'edit'])->name('sp.edit');
     Route::put('/sp/faq/update/{id}', [FaqSpController::class, 'update'])->name('sp.update');
-    Route::get('/sp/faq/preview/{id}', [FaqSpController::class, 'preview'])->name('sp.preview');
+    // Route::get('/sp/faq/preview/{id}', [FaqSpController::class, 'preview'])->name('sp.preview');
 });
+
+Route::get('/sitemap.xml', function () {
+    $path = public_path('public/sitemap.xml'); // Sesuaikan dengan path ke file sitemap.xml Anda
+    return response()->file($path);
+})->name('sitemap');

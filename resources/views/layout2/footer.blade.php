@@ -31,6 +31,14 @@
           <li><i class="bx bx-chevron-right"></i> <a href="">DIKO POS</a></li>
         </ul>
       </div>
+
+      <div class="col-lg-3 col-md-6 footer-links">
+        <h4>Navigasi</h4>
+        <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="{{ route('sitemap') }}">Sitemap (Peta Situs)</a></li>
+        </ul>
+    </div>
+
     </div>
   </div>
 </div>

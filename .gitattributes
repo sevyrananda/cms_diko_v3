@@ -9,3 +9,9 @@
 /.github export-ignore
 CHANGELOG.md export-ignore
 .styleci.yml export-ignore
+
+# Menggunakan LF (Line Feed) di repositori, tidak peduli sistem operasi
+* text eol=lf
+
+# File yang harus menggunakan CRLF di repositori, misalnya file XML atau HTML yang spesifik
+public/sitemap.xml eol=crlf
