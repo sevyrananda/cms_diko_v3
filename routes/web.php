@@ -28,15 +28,12 @@ use App\Http\Controllers\DataUserController;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
-Route::get('/landing', [ProdukController::class, 'landing'])->name('pagelanding.preview');
+Route::get('/', [ProdukController::class, 'landing'])->name('pagelanding.preview');
 Route::get('/produk/preview/{id}/{selection}', [ProdukController::class, 'preview'])->name('produk.preview');
 
 Route::middleware(['auth'])->group(function () {
