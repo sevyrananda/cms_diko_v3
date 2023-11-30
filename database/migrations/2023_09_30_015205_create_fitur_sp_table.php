@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('fitur_sp', function (Blueprint $table) {
             $table->id();
-            $table->string('icon1',100);
-            $table->string('judul_icon1',100);
-            $table->string('judul_detail',100);
+            $table->string('icon1',255);
+            $table->string('judul_icon1',255);
+            $table->string('judul_detail',255);
             $table->string('isi_detail',500);
             $table->string('image')->nullable();
 

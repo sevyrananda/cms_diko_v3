@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\FiturSp2;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FiturSp2Controller extends Controller
 {
     public function index()
     {
         $fitur2 = FiturSp2::get();
-        return view('pages.diko_sp.fitur.list2', compact('fitur2'));
+        $user = Auth::user();
+        return view('pages.diko_sp.fitur.list2', compact('fitur2', 'user'));
     }
 
     public function store(Request $request)

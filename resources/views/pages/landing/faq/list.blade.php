@@ -15,106 +15,6 @@
                             </div>
                         @endif
 
-                        {{-- <div class="card">
-                            <div class="card-header">
-                                <h4>All FAQ</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="float-left">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#createModal"><i class="fas fa-plus"></i>
-                                        Create New FAQ
-                                    </button>
-                                    <a href="{{ route('previewall') }}"  class="btn btn-success"><i class="fas fa-eye"></i>
-                                        Preview in Website</a>
-
-                                </div>
-                                <div class="float-right">
-                                    <form>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="clearfix mb-3"></div>
-                                <div class="table-responsive">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Question</th>
-                                                <th>Answer</th>
-                                                <th>Aksi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @php
-                                                $no = 1;
-                                            @endphp
-                                            @foreach ($faq as $faqs)
-                                                <tr>
-                                                    <td>{{ $no++ }}</td>
-                                                    <td>{{ $faqs->question }}</td>
-                                                    <td>{{ $faqs->answer }}</td>
-                                                    <td>
-                                                        <div class="d-flex justify-content">
-                                                            <a href="{{ route('faq.preview', ['id' => $faqs->id]) }}" class="btn btn-primary">Preview</a>
-                                                            <button type="submit" class="btn btn-warning"
-                                                                style="margin-left: 5px;" data-toggle="modal"
-                                                                data-target="#editModal{{ $faqs->id }}">Edit</button>
-                                                            <button type="button" class="btn btn-danger"
-                                                                style="margin-left: 5px;"
-                                                                onclick="deletePost({{ $faqs->id }}, '{{ $faqs->question }}')">
-                                                                Delete
-                                                            </button>
-
-                                                            <!-- Formulir Penghapusan Tersembunyi -->
-                                                            <form id="delete-form-{{ $faqs->id }}"
-                                                                action="{{ route('destroy', ['id' => $faqs->id]) }}"
-                                                                method="POST">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                            </form>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="float-right">
-                                    <nav>
-                                        <ul class="pagination">
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="#" aria-label="Previous">
-                                                    <span aria-hidden="true">&laquo;</span>
-                                                    <span class="sr-only">Previous</span>
-                                                </a>
-                                            </li>
-                                            <li class="page-item active">
-                                                <a class="page-link" href="#">1</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">2</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">3</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#" aria-label="Next">
-                                                    <span aria-hidden="true">&raquo;</span>
-                                                    <span class="sr-only">Next</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div> --}}
-
                         {{-- Datatables --}}
                         <div class="card">
                             <div class="card-header">
@@ -122,11 +22,9 @@
                             </div>
                             <div class="card-body">
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#createModal"><i class="fas fa-plus"></i>
-                                        Create New
-                                    </button>
-                                    <a href="{{ route('previewall') }}"  class="btn btn-success"><i class="fas fa-eye"></i>
-                                        Preview</a>
+                                    data-target="#createModal"><i class="fas fa-plus"></i>
+                                    Create New
+                                </button>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -152,7 +50,7 @@
                                                     <td>
                                                         <div class="d-flex justify-content">
 
-                                                            <a href="{{ route('faq.preview', ['id' => $f->id]) }}" class="btn btn-primary">Show</a>
+                                                            {{-- <a href="{{ route('faq.preview', ['id' => $f->id]) }}" class="btn btn-primary">Show</a> --}}
                                                             <button type="submit" class="btn btn-warning"
                                                                 style="margin-left: 10px;" data-toggle="modal"
                                                                 data-target="#editModal{{ $f->id }}">Edit</button>
@@ -189,7 +87,8 @@
         function deletePost(id, question) {
             Swal.fire({
                 title: 'Are you sure?',
-                text: 'You are about to delete the post with title: "' + question + '". This action cannot be undone!',
+                text: 'You are about to delete the post with title: "' + question +
+                    '". This action cannot be undone!',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

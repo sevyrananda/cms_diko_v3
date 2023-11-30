@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('fitur_landing', function (Blueprint $table) {
             $table->id();
-            $table->string('judul',100);
+            $table->string('judul',255);
             $table->string('isi',500);
             $table->string('icon')->nullable();
 

@@ -19,13 +19,12 @@
                     </div>
                     <div class="form-group">
                         <label for="isi">Isi</label>
-                        <textarea class="form-control" id="isi" name="isi" rows="4" required></textarea>
+                        <textarea class="form-control" id="isi" name="isi" required></textarea>
                     </div>
-                    
-                    {{-- <div class="form-group">
+                    <div class="form-group">
                         <label for="image">Image</label>
-                        <input type="file" class="form-control-file" id="image" name="image">
-                    </div> --}}
+                        <input type="file" class="form-control" id="image" name="image">
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Create Fitur</button>

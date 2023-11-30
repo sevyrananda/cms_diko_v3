@@ -30,13 +30,13 @@
                         <div id="dynamicInput_{{ $post->id }}">
                             @foreach($post->deskripsi as $deskripsi)
                             <div class="input-group">
-                                <input class="form-control" name="edit_deskripsi_pricingsp[]" value="{{ $deskripsi->deskripsi }}" required></input>
-                                <button type="button" class="btn btn-danger" onclick="removeEditInput(this)">Remove</button>
+                                <input class="form-control mb-2" name="edit_deskripsi_pricingsp[]" value="{{ $deskripsi->deskripsi }}" required></input>
+                                <button type="button" class="btn btn-danger mb-2" onclick="removeEditInput(this)">Remove</button>
                             </div>
                             @endforeach
                         </div>
                         <div class="form-group">
-                            <button type="button" class="btn btn-primary" onclick="addEditInput({{ $post->id }})">Add More</button>
+                            <button type="button" class="btn btn-primary btn-block mt-2" onclick="addEditInput({{ $post->id }})">Add More</button>
                         </div>
                     </div>
                 </div>

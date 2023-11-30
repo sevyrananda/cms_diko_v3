@@ -21,25 +21,15 @@
                     <div class="form-group">
                         <label for="preview_selection">Pilih Preview</label>
                         <select class="form-control" id="preview_selection" name="preview_selection">
-                            <option value="preview_pos">Layout 1</option>
-                            <option value="preview_sp">Layout 2</option>
+                            <option value="preview_pos">Layout 1 (preview_pos)</option>
+                            <option value="preview_sp">Layout 2 (preview_sp)</option>
                         </select>
                     </div>
-
-                    {{-- <div class="form-group">
-                        <label for="section">Section 1</label>
-                        <select class="form-control" id="section" name="section">
-                            <option value="Fitur Utama">Fitur Utama</option>
-                            <option value="Fitur Section 1">Fitur Section 1</option>
-                            <option value="Fitur Section 2">Fitur Section 2</option>
-                        </select>
-                    </div> --}}
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Create Produk</button>
                     </div>
-
                 </form>
             </div>
         </div>

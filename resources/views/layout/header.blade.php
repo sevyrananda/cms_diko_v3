@@ -163,7 +163,7 @@
                                 class="d-sm-none d-lg-inline-block"></span></a>
                         <div class="dropdown-menu dropdown-menu-right pullDown">
                             <div class="dropdown-title">
-                                Hi, <span class="user-name" style="color: #5B0888;"><b>Admin</b></span>
+                                Hi, <span class="user-name" style="color: #5B0888;"><b>{{ $user->name }}</b></span>
                             </div>
                             <a href="profile.html" class="dropdown-item has-icon"> <i class="fas fa-user"></i>
                                 Profile
@@ -173,10 +173,11 @@
                                 Settings
                             </a>
                             <div class="dropdown-divider"></div>
-                            <form action="{{ route('logout') }}" method="POST">
+                            <form action="{{ route('logout') }}" method="POST" id="logoutForm">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="dropdown-item has-icon text-danger">
+                                <button type="button" class="dropdown-item has-icon text-danger"
+                                    onclick="confirmLogout()">
                                     <i class="fas fa-sign-out-alt" style="margin-top: 10px;"></i> Logout
                                 </button>
                             </form>
@@ -186,3 +187,23 @@
             </nav>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script>
+        function confirmLogout() {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You will be logged out!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, logout!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('logoutForm').submit();
+                }
+            });
+        }
+    </script>

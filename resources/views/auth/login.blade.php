@@ -72,28 +72,20 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <!-- <div class="d-block">
-                      <label for="password" class="control-label">Password</label>
-                      <div class="float-right">
-                        <a href="auth-forgot-password.html" class="text-small">
-                          Forgot Password?
-                        </a>
-                      </div>
-                    </div> -->
                                                 <label for="password" class="control-label">Password</label>
-                                                <input id="password" type="password" class="form-control"
-                                                    name="password" placeholder="Masukkan Password" tabindex="2"
-                                                    required>
+                                                <div class="input-group">
+                                                    <input id="password" type="password" class="form-control" name="password" placeholder="Masukkan Password"
+                                                        tabindex="2" required>
+                                                    <div class="input-group-append">
+                                                        <button type="button" class="btn btn-outline-secondary" id="togglePassword">Show</button>
+                                                    </div>
+                                                </div>
                                                 <div class="invalid-feedback">
-                                                    please fill in your password
+                                                    Please fill in your password
                                                 </div>
                                             </div>
-                                            <!-- <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me">
-                      <label class="custom-control-label" for="remember-me">Remember Me</label>
-                    </div>
-                  </div> -->
+
+
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-primary btn-lg btn-block"
                                                     tabindex="4">
@@ -104,21 +96,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="text-center mt-4 mb-3">
-                  <div class="text-job text-muted">Login With Social</div>
-                </div>
-                <div class="row sm-gutters">
-                  <div class="col-6">
-                    <a class="btn btn-block btn-social btn-facebook">
-                      <span class="fab fa-facebook"></span> Facebook
-                    </a>
-                  </div>
-                  <div class="col-6">
-                    <a class="btn btn-block btn-social btn-twitter">
-                      <span class="fab fa-twitter"></span> Twitter
-                    </a>
-                  </div>
-                </div> -->
+
                         </div>
                     </div>
                 </div>
@@ -138,6 +116,20 @@
     <script src="{{ url('otika') }}/assets/js/scripts.js"></script>
     <!-- Custom JS File -->
     <script src="{{ url('otika') }}/assets/js/custom.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const passwordField = document.getElementById('password');
+            const togglePasswordButton = document.getElementById('togglePassword');
+
+            // Event listener for toggle password button
+            togglePasswordButton.addEventListener('click', function () {
+                const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordField.setAttribute('type', type);
+                togglePasswordButton.innerText = type === 'password' ? 'Show' : 'Hide';
+            });
+        });
+    </script>
+
 </body>
 
 

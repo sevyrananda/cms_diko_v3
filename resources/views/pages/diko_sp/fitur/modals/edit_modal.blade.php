@@ -17,10 +17,10 @@
                         <label for="edit_icon1">Icon1</label>
                         <select id="editIconSelector" class="form-control" name="edit_icon1">
                             <option value="{{ $sp->icon1 }}" selected disabled>{{ $sp->icon1 }}</option>
-                            <option value="bi bi-currency-exchange">bi bi-currency-exchange</option>
-                            <option value="bi bi-credit-card-2-back">bi bi-credit-card-2-back</option>
-                            <option value="bi bi-cloud-check">bi bi-cloud-check</option>
+                            <option value="bi bi-cash-coin">bi bi-cash-coin</option>
                             <option value="bi bi-shield-check">bi bi-shield-check</option>
+                            <option value="bi bi-binoculars">bi bi-binoculars</option>
+                            <option value="bi bi-clock-history">bi bi-clock-history</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -33,11 +33,11 @@
                     </div>
                     <div class="form-group">
                         <label for="edit_isi_detail">Isi Detail</label>
-                        <input type="text" class="form-control" id="edit_isi_detail" name="edit_isi_detail" value="{{ $sp->isi_detail }}">
+                        <textarea class="form-control" id="edit_isi_detail" name="edit_isi_detail">{{ $sp->isi_detail }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="edit_image">Image</label>
-                        <input type="file" class="form-control-file" id="edit_image" name="edit_image">
+                        <input type="file" class="form-control" id="edit_image" name="edit_image">
                         @if ($sp->image)
                             <div style="display: flex; align-items: center;">
                                 <img src="{{ asset('storage/' . $sp->image) }}" alt="Image" style="max-width: 100px; margin-right: 10px;">

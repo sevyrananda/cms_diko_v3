@@ -19,7 +19,7 @@
                     </div>
                     <div class="form-group">
                         <label for="isi">Isi</label>
-                        <input type="text" class="form-control" id="isi" name="isi" required>
+                        <textarea class="form-control" id="isi" name="isi" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="icon">Pilih Ikon:</label>

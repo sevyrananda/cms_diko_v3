@@ -176,8 +176,8 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content">
-                                                        <a href="{{ route('sp.fitur.preview', ['id' => $sp->id]) }}"
-                                                            class="btn btn-success">Preview</a>
+                                                        {{-- <a href="{{ route('sp.fitur.preview', ['id' => $sp->id]) }}"
+                                                            class="btn btn-success">Preview</a> --}}
                                                         <button type="submit" class="btn btn-warning"
                                                             style="margin-left: 5px;" data-toggle="modal"
                                                             data-target="#editModal{{ $sp->id }}">Edit</button>

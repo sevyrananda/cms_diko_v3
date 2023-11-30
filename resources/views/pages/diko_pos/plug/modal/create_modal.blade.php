@@ -20,6 +20,10 @@
                         <label for="isi">Isi</label>
                         <textarea class="form-control" id="isi" name="isi" rows="4" onkeydown="handleEnter(event)" required></textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="gambar">Gambar</label>
+                        <input type="file" class="form-control" id="gambar" name="image" accept="image/*">
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Create Fitur</button>

@@ -4,22 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\PluginPos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PluginPosController extends Controller
 {
     public function index()
     {
         $posts = PluginPos::get();
-        return view('pages.diko_pos.plug.list', compact('posts'));
+        $user = Auth::user();
+        return view('pages.diko_pos.plug.list', compact('posts', 'user'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    // public function create()
-    // {
-    //     return view('landing.fitur.create');
-    // }
+
 
     /**
      * Store a newly created resource in storage.
@@ -45,7 +44,7 @@ class PluginPosController extends Controller
 
         $post->save();
 
-        return redirect('/pos/plugin/list')->with('success', 'Post has been added.');
+        return redirect('/pos/plugin/list')->with('success', 'Plugin has been added.');
     }
 
     /**
@@ -55,12 +54,6 @@ class PluginPosController extends Controller
     {
         $posts = PluginPos::all();
         return view('pages.diko_pos.plug.list', compact('posts'));
-    }
-
-    public function previewalldata()
-    {
-        $posts = PluginPos::all();
-        return view('pages.diko_pos.plug.previewalldata', compact('posts'));
     }
 
     public function preview($id)
@@ -111,7 +104,7 @@ class PluginPosController extends Controller
 
         $post->save();
 
-        return redirect('/pos/plugin/list')->with('success', 'Post has been edited.');
+        return redirect('/pos/plugin/list')->with('success', 'Plugin has been edited.');
     }
 
     /**
@@ -123,9 +116,9 @@ class PluginPosController extends Controller
 
     if ($post) {
         $post->delete();
-        return redirect('/pos/plugin/list')->with('success', 'Activity has been deleted.');
+        return redirect('/pos/plugin/list')->with('success', 'Plugin has been deleted.');
     } else {
-        return redirect('/pos/plugin/list')->with('error', 'Activity not found.');
+        return redirect('/pos/plugin/list')->with('error', 'Plugin not found.');
     }
 }
 

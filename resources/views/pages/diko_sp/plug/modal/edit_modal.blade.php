@@ -21,6 +21,15 @@
                         <label for="edit_isi">Isi</label>
                         <textarea class="form-control" id="edit_isi" name="edit_isi">{{ $post->isi }}</textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="edit_gambar">Gambar</label>
+                        @if ($post->image)
+                            <img src="{{ asset('storage/' . $post->image) }}" alt="Image" style="max-width: 100px;">
+                        @else
+                            No Image
+                        @endif
+                        <input type="file" class="form-control" id="edit_gambar" name="edit_image" accept="image/*">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

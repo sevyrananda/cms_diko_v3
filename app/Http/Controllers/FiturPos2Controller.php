@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\FiturPos2;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FiturPos2Controller extends Controller
 {
     public function index()
     {
         $posts = FiturPos2::get();
-        return view('pages.diko_pos.fitur.list2', compact('posts'));
+        $user = Auth::user();
+        return view('pages.diko_pos.fitur.list2', compact('posts', 'user'));
     }
 
     public function store(Request $request)

@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DataUserController extends Controller
 {
     public function index()
     {
+        $user = Auth::user();
         $posts = User::get();
-        return view('data_user.list', compact('posts'));
+        return view('data_user.list', compact('posts', 'user'));
     }
 
     public function create()
@@ -29,11 +31,17 @@ class DataUserController extends Controller
         $post = new User();
         $post->name = $request->input('name');
         $post->email = $request->input('email');
-        $post->password = encrypt($request->input('password'));
+        $post->password = $request->input('password');
 
         $post->save();
 
         return redirect('/data_user')->with('success', 'User has been added.');
+    }
+
+    public function edit($id)
+    {
+        $post = User::find($id);
+        return view('data_user.edit', compact('post'));
     }
 
     public function update(Request $request, $id)
@@ -52,7 +60,7 @@ class DataUserController extends Controller
 
         $post->name = $request->input('edit_name');
         $post->email = $request->input('edit_email');
-        $post->password = encrypt($request->input('edit_password'));
+        $post->password = $request->input('edit_password');
 
         $post->save();
 

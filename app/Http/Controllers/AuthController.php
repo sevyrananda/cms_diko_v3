@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -40,6 +41,10 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($credetials)) {
+            DB::table('users')
+                ->where('id', Auth::id())
+                ->update(['last_login' => date('Y-m-d H:i:s')]);
+
             return redirect('/home')->with('success', 'Login Success');
         }
 
@@ -53,4 +58,16 @@ class AuthController extends Controller
         return redirect()->route('login');
     }
 
+    public function setelahLogin()
+    {
+        $user = Auth::user();
+
+        $totalUsers = DB::table('users')->count();
+        $totalLayout = DB::table('produk')->count();
+        return view('home', [
+            'totalUsers' => $totalUsers,
+            'totalLayout' => $totalLayout,
+            'user' => $user
+        ]);
+    }
 }

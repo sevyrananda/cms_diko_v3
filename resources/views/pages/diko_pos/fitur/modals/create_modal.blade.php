@@ -16,10 +16,10 @@
                     <div class="form-group">
                         <label for="icon1">Icon1</label>
                         <select id="selectedIcon1" class="form-control" name="icon1">
-                            <option value="bi bi-currency-exchange">bi bi-currency-exchange</option>
-                            <option value="bi bi-credit-card-2-back">bi bi-credit-card-2-back</option>
-                            <option value="bi bi-cloud-check">bi bi-cloud-check</option>
+                            <option value="bi bi-cash-coin">bi bi-cash-coin</option>
                             <option value="bi bi-shield-check">bi bi-shield-check</option>
+                            <option value="bi bi-binoculars">bi bi-binoculars</option>
+                            <option value="bi bi-clock-history">bi bi-clock-history</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -32,11 +32,11 @@
                     </div>
                     <div class="form-group">
                         <label for="isi_detail">Isi Detail</label>
-                        <input type="text" class="form-control" id="isi_detail" name="isi_detail" required>
+                        <textarea class="form-control" id="isi_detail" name="isi_detail" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="image">Image</label>
-                        <input type="file" class="form-control-file" id="image" name="image">
+                        <input type="file" class="form-control" id="image" name="image">
                     </div>
 
                     <div class="modal-footer">

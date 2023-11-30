@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\FiturLanding;
 use App\Models\FiturPos;
 use App\Models\FiturPos2;
-use App\Models\FaqLanding;
-use App\Models\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class FiturLandingController extends Controller
@@ -18,7 +17,8 @@ class FiturLandingController extends Controller
     public function index()
     {
         $posts = FiturLanding::get();
-        return view('pages.landing.fitur.list', compact('posts'));
+        $user = Auth::user();
+        return view('pages.landing.fitur.list', compact('posts', 'user'));
     }
 
     /**

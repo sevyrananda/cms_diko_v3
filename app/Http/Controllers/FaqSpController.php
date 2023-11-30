@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FaqSp;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class FaqSpController extends Controller
@@ -13,8 +14,9 @@ class FaqSpController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $faq = FaqSp::get();
-        return view('pages.diko_sp.faq.list', compact('faq'));
+        return view('pages.diko_sp.faq.list', compact('faq', 'user'));
     }
 
     /**
@@ -65,11 +67,6 @@ class FaqSpController extends Controller
     {
         $faq = FaqSp::find($id);
         return view('pages.diko_sp.faq.preview', compact('faq'));
-    }
-    public function previewall()
-    {
-        $faq = FaqSp::all();
-        return view('pages.diko_sp.faq.previewall', compact('faq'));
     }
 
     /**

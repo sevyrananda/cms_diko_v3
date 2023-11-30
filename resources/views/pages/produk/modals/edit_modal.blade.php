@@ -17,32 +17,24 @@
                         <label for="edit_nama_produk">Nama Produk</label>
                         <input type="text" class="form-control" id="edit_nama_produk" name="edit_nama_produk" value="{{ $product->nama_produk }}">
                     </div>
-                    {{-- <div class="form-group">
-                        <label for="edit_section">Pilih Section</label>
-                        <select id="editSectionSelector" class="form-control" name="edit_section">
-                            <option value="{{ $product->section }}" selected disabled>{{ $product->section }}</option>
-                            <option value="Fitur Utama">Fitur Utama</option>
-                            <option value="Fitur Section 1">Fitur Section 1</option>
-                            <option value="Fitur Section 2">Fitur Section 2</option>
+
+
+                    <div class="form-group">
+                        <label for="edit_preview_selection">Edit Preview Selection</label>
+                        <select class="form-control" id="edit_preview_selection" name="edit_preview_selection">
+                            <option value="preview_pos" @if($product->preview_selection == 'preview_pos') selected @endif>Layout 1 (preview_pos)</option>
+                            <option value="preview_sp" @if($product->preview_selection == 'preview_sp') selected @endif>Layout 2 (preview_sp)</option>
                         </select>
-                    </div> --}}
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
-                </div>
+
             </form>
         </div>
     </div>
 </div>
-<script>
-    // Mendapatkan elemen-elemen yang diperlukan
-    var editSectionSelector = document.getElementById('editSectionSelector');
-
-    // Mendengarkan perubahan dalam elemen <select> pada modal pengeditan
-    editSectionSelector.addEventListener('change', function () {
-        var selectedValue = editSectionSelector.value; // Mendapatkan nilai yang dipilih
-
-    });
-</script>
 @endforeach

@@ -39,10 +39,10 @@ Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
 Route::get('/landing', [ProdukController::class, 'landing'])->name('pagelanding.preview');
 Route::get('/produk/preview/{id}/{selection}', [ProdukController::class, 'preview'])->name('produk.preview');
 
-Route::group(['middleware' => 'auth'], function () {
+Route::middleware(['auth'])->group(function () {
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/home', [AuthController::class, 'setelahLogin'])->name('home');
     // Data User
     Route::get('/data_user', [DataUserController::class, 'index'])->name('dataUser');
     Route::post('/store_user', [DataUserController::class, 'store'])->name('store_user');
@@ -75,7 +75,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/edit/{id}', [FaqLandingController::class, 'edit'])->name('edit');
     Route::put('/update/{id}', [FaqLandingController::class, 'update'])->name('update');
     Route::get('/preview/{id}', [FaqLandingController::class, 'preview'])->name('faq.preview');
-    Route::get('/previewall', [FaqLandingController::class, 'previewall'])->name('previewall');
 
 
     //DIKO POS - fitur
@@ -102,7 +101,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pos/edit/{id}', [PricingPosController::class, 'edit'])->name('pospricing.edit');
     Route::put('/pos/update/{id}', [PricingPosController::class, 'update'])->name('pospricing.update');
     Route::get('/pos/preview/{id}', [PricingPosController::class, 'preview'])->name('pospricing.preview');
-    Route::get('/pos/pricing/all', [PricingPosController::class, 'previewalldata'])->name('pospricing.previewalldata');
 
     //DIKO POS - Plugin
     Route::get('/pos/plugin/list', [PluginPosController::class, 'index'])->name('posPlugin');
@@ -111,7 +109,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/editPos/{id}', [PluginPosController::class, 'edit'])->name('editPos');
     Route::put('/updatePos/{id}', [PluginPosController::class, 'update'])->name('updatePos');
     Route::get('/previewPos/{id}', [PluginPosController::class, 'preview'])->name('previewPos');
-    Route::get('/pos/plugin/all', [PluginPosController::class, 'previewalldata'])->name('posplugin.previewalldata');
 
 
     //DIKO SP - Fitur
@@ -137,7 +134,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/editSp/{id}', [PluginSpController::class, 'edit'])->name('editSp');
     Route::put('/updateSp/{id}', [PluginSpController::class, 'update'])->name('updateSp');
     Route::get('/previewSp/{id}', [PluginSpController::class, 'preview'])->name('previewSp');
-    Route::get('/sp/plugin/all', [PluginSpController::class, 'previewalldata'])->name('spplugin.previewalldata');
 
     //DIKO SP - Pricing
     Route::get('/sp/pricing/list', [PricingSpController::class, 'index'])->name('sppricing');
@@ -146,7 +142,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/sp/edit/{id}', [PricingSpController::class, 'edit'])->name('sppricing.edit');
     Route::put('/sp/update/{id}', [PricingSpController::class, 'update'])->name('sppricing.update');
     Route::get('/sp/preview/{id}', [PricingSpController::class, 'preview'])->name('sppricing.preview');
-    Route::get('/sp/pricing/all', [PricingSpController::class, 'previewalldata'])->name('sppricing.previewalldata');
 
     //DIKO SP - Faq
     Route::get('/sp/faq/list', [FaqSpController::class, 'index'])->name('sp.faq');
@@ -155,5 +150,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/sp/edit/{id}', [FaqSpController::class, 'edit'])->name('sp.edit');
     Route::put('/sp/faq/update/{id}', [FaqSpController::class, 'update'])->name('sp.update');
     Route::get('/sp/faq/preview/{id}', [FaqSpController::class, 'preview'])->name('sp.preview');
-    Route::get('/sp/previewall', [FaqSpController::class, 'previewall'])->name('sp.previewall');
 });

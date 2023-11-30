@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\PricingPos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PricingPosController extends Controller
 {
     public function index()
     {
         $pricings = PricingPos::get();
-        return view('pages.diko_pos.pricing.list', compact('pricings'));
+        $user = Auth::user();
+        return view('pages.diko_pos.pricing.list', compact('pricings', 'user'));
     }
 
     public function store(Request $request)
@@ -46,12 +48,6 @@ class PricingPosController extends Controller
     {
         $pricings = PricingPos::find($id);
         return view('pages.diko_pos.pricing.preview', compact('pricings'));
-    }
-
-    public function previewalldata()
-    {
-        $pricings = PricingPos::all();
-        return view('pages.diko_pos.pricing.previewalldata', compact('pricings'));
     }
 
     public function edit($id) //kayany gak digunakan

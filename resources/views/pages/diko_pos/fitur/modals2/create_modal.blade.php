@@ -20,6 +20,8 @@
                             <option value="bi bi-arrow-down-up">bi bi-arrow-down-up</option>
                             <option value="bi bi-bar-chart">bi bi-bar-chart</option>
                             <option value="bi bi-bounding-box-circles">bi bi-bounding-box-circles</option>
+                            <option value="bi bi-calendar4-week">bi bi-calendar4-week</option>
+                            <option value="bi bi-chat-square-text">bi bi-chat-square-text</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -28,11 +30,11 @@
                     </div>
                     <div class="form-group">
                         <label for="isi">Isi</label>
-                        <input type="text" class="form-control" id="isi" name="isi" required>
+                        <textarea class="form-control" id="isi" name="isi" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="image">Image</label>
-                        <input type="file" class="form-control-file" id="image" name="image">
+                        <input type="file" class="form-control" id="image" name="image">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

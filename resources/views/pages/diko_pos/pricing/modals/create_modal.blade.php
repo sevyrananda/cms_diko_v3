@@ -25,15 +25,9 @@
                         <label for="harga_pricingpos">Harga Pricing POS</label>
                         <input type="text" class="form-control" id="harga_pricingpos" name="harga_pricingpos" required>
                     </div>
-                    {{-- <div class="form-group">
-                        <label for="deskripsi_pricingpos">Deskripsi Pricing POS</label>
-                        <textarea class="form-control" id="deskripsi_pricingpos" name="deskripsi_pricingpos" required></textarea>
-                    </div> --}}
-
                     <div class="form-group">
                         <label for="deskripsi_pricingpos">Deskripsi Pricing POS</label>
                         <div id="dynamicInput">
-                            <!-- Use the container div to add multiple input fields -->
                             <div class="input-group">
                                 <input class="form-control mb-1" name="deskripsi_pricingpos[]" required></input>
                                 <button type="button" class="btn btn-danger mb-1" onclick="removeInput(this)">Remove</button>

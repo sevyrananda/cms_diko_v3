@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\PluginSp;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PluginSpController extends Controller
 {
     public function index()
     {
         $posts = PluginSp::get();
-        return view('pages.diko_sp.plug.list', compact('posts'));
+        $user = Auth::user();
+        return view('pages.diko_sp.plug.list', compact('posts', 'user'));
     }
 
 
@@ -46,7 +48,7 @@ class PluginSpController extends Controller
 
         $post->save();
 
-        return redirect('/sp/plugin/list')->with('success', 'Post has been added.');
+        return redirect('/sp/plugin/list')->with('success', 'Plugin has been added.');
     }
 
     /**
@@ -56,12 +58,6 @@ class PluginSpController extends Controller
 {
     $posts = PluginSp::all();
     return view('pages.diko_sp.plug.list', compact('posts'));
-}
-
-public function previewalldata()
-{
-    $posts = PluginSp::all();
-    return view('pages.diko_sp.plug.previewalldata', compact('posts'));
 }
 
 public function preview($id)
@@ -108,7 +104,7 @@ public function preview($id)
 
         $post->save();
 
-        return redirect('/sp/plugin/list')->with('success', 'Post has been edited.');
+        return redirect('/sp/plugin/list')->with('success', 'Plugin has been edited.');
     }
 
     /**
@@ -119,7 +115,7 @@ public function preview($id)
         $post = PluginSp::find($id);
         $post->delete();
 
-        return redirect('/sp/plugin/list')->with('success', 'Activity has been deleted.');
+        return redirect('/sp/plugin/list')->with('success', 'Plugin has been deleted.');
     }
 }
 

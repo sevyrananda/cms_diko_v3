@@ -12,7 +12,10 @@ use App\Models\PricingSp;
 use App\Models\PricingPos;
 use App\Models\FaqLanding;
 use App\Models\FaqSp;
+use App\Models\PluginPos;
+use App\Models\PluginSp;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProdukController extends Controller
 {
@@ -22,10 +25,11 @@ class ProdukController extends Controller
         $fiturLanding = FiturLanding::all();
         $fiturPos = FiturPos::all();
         $fiturPos2 = FiturPos2::all();
+        $user = Auth::user();
 
         // Gabungkan data dari ketiga model menjadi satu variabel
         $fitur = $fiturLanding->concat($fiturPos)->concat($fiturPos2);
-        return view('pages.produk.list', compact('products', 'fitur'));
+        return view('pages.produk.list', compact('products', 'fitur', 'user'));
     }
 
     public function store(Request $request)
@@ -40,16 +44,6 @@ class ProdukController extends Controller
         $product->nama_produk = $request->input('nama_produk');
         $product->preview_selection = $request->input('preview_selection');
         $product->save();
-
-        // if ($request->input('preview_selection') === 'preview_pos') {
-        //     $pos = FiturPos::all();
-        //     $pos2 = FiturPos2::all();
-        //     $products = Produk::all();
-        //     return view('pages.produk.list', compact('product', 'products', 'pos', 'pos2'));
-        // } elseif ($request->input('preview_selection') === 'preview_sp') {
-        //     // Gantilah dengan tampilan preview_sp jika Anda memiliki tampilan khusus untuk itu
-        //     return view('pages.produk.list', compact('product'));
-        // }
 
         return redirect('/produk')->with('success', 'Produk telah ditambahkan.');
     }
@@ -79,11 +73,13 @@ class ProdukController extends Controller
         if ($selection === 'preview_pos') {
             $pos = FiturPos::all();
             $pos2 = FiturPos2::all();
-            return view('pages.produk.preview_pos', compact('product', 'pos', 'pos2', 'pricings'));
+            $posts = PluginPos::all();
+            return view('pages.produk.preview_pos', compact('product', 'pos', 'pos2', 'pricings', 'posts'));
         } elseif ($selection === 'preview_sp') {
             $sp = FiturSp::all();
             $sp2 = FiturSp2::all();
-            return view('pages.produk.preview_sp', compact('product', 'sp', 'sp2', 'pricing', 'faq'));
+            $posts = PluginSp::all();
+            return view('pages.produk.preview_sp', compact('product', 'sp', 'sp2', 'pricing', 'faq', 'posts'));
         }
 
         return redirect('/produk')->with('success', 'Invalid selection.');
@@ -101,7 +97,7 @@ class ProdukController extends Controller
         // Validasi data
         $validatedData = $request->validate([
             'edit_nama_produk' => 'nullable',
-            // 'edit_section' => 'nullable',
+            'edit_preview_selection' => 'nullable|in:preview_pos,preview_sp',
         ]);
 
         // Temukan data post berdasarkan ID
@@ -111,9 +107,9 @@ class ProdukController extends Controller
         if ($request->has('edit_nama_produk')) {
             $product->nama_produk = $request->input('edit_nama_produk');
         }
-        // if ($request->has('edit_section')) {
-        //     $product->section = $request->input('edit_section');
-        // }
+        if ($request->has('edit_preview_selection')) {
+            $product->preview_selection = $request->input('edit_preview_selection');
+        }
 
         $product->save();
 

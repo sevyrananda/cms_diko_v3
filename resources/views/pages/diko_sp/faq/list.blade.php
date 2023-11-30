@@ -41,114 +41,6 @@
                             </div>
                         @endif
 
-                        {{-- <div class="card">
-                            <div class="card-header">
-                                <h4>All FAQ</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="float-left">
-                                    <!-- Button to trigger modal -->
-                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#createModal"><i class="fas fa-plus"></i>
-                                        Create New FAQ
-                                    </button>
-                                    <a href="{{ route('sp.previewall') }}"  class="btn btn-success"><i class="fas fa-eye"></i>
-                                        Preview in Website</a>
-                                </div>
-                                <div class="float-right">
-                                    <form>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="clearfix mb-3"></div>
-                                <div class="table-responsive">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Question</th>
-                                                <th>Answer</th>
-                                                <th>Aksi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @php
-                                                $no = 1;
-                                            @endphp
-                                            @foreach ($faq as $post)
-                                                <tr>
-                                                    <td>{{ $no++ }}</td>
-                                                    <td>{{ $post->question }}</td>
-                                                    <td>{{ $post->answer }}</td>
-                                                    <td>
-                                                        @if ($post->image)
-                                                            <img src="{{ asset('storage/' . $post->image) }}" alt="Image"
-                                                                style="max-width: 100px;">
-                                                        @else
-                                                            No Image
-                                                        @endif
-                                                    </td>
-                                                    <td>
-                                                        <div class="d-flex justify-content">
-                                                            <a href="{{ route('sp.preview', ['id' => $post->id]) }}" class="btn btn-primary">Preview</a>
-                                                            <button type="submit" class="btn btn-warning"
-                                                                style="margin-left: 5px;" data-toggle="modal"
-                                                                data-target="#editModal{{ $post->id }}">Edit</button>
-                                                            <button type="button" class="btn btn-danger"
-                                                                style="margin-left: 5px;"
-                                                                onclick="deletePost({{ $post->id }}, '{{ $post->question }}')">
-                                                                Delete
-                                                            </button>
-
-                                                            <!-- Formulir Penghapusan Tersembunyi -->
-                                                            <form id="delete-form-{{ $post->id }}"
-                                                                action="{{ route('sp.destroy', ['id' => $post->id]) }}"
-                                                                method="POST">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                            </form>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="float-right">
-                                    <nav>
-                                        <ul class="pagination">
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="#" aria-label="Previous">
-                                                    <span aria-hidden="true">&laquo;</span>
-                                                    <span class="sr-only">Previous</span>
-                                                </a>
-                                            </li>
-                                            <li class="page-item active">
-                                                <a class="page-link" href="#">1</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">2</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">3</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#" aria-label="Next">
-                                                    <span aria-hidden="true">&raquo;</span>
-                                                    <span class="sr-only">Next</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div> --}}
-
                         {{-- Datatables --}}
                         <div class="card">
                             <div class="card-header">
@@ -159,8 +51,6 @@
                                         data-target="#createModal"><i class="fas fa-plus"></i>
                                         Create New
                                     </button>
-                                    {{-- <a href="{{ route('sp.previewall') }}"  class="btn btn-success"><i class="fas fa-eye"></i>
-                                        Preview</a> --}}
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -186,7 +76,7 @@
                                                     <td>
                                                         <div class="d-flex justify-content">
 
-                                                            <a href="{{ route('sp.preview', ['id' => $f->id]) }}" class="btn btn-success">Preview</a>
+                                                            {{-- <a href="{{ route('sp.preview', ['id' => $f->id]) }}" class="btn btn-success">Preview</a> --}}
                                                             <button type="submit" class="btn btn-warning"
                                                                 style="margin-left: 10px;" data-toggle="modal"
                                                                 data-target="#editModal{{ $f->id }}">Edit</button>

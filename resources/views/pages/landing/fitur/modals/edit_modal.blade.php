@@ -19,10 +19,10 @@
                     </div>
                     <div class="form-group">
                         <label for="edit_isi">Isi</label>
-                        <input type="text" class="form-control" id="edit_isi" name="edit_isi" value="{{ $post->isi }}">
+                        <textarea class="form-control" id="edit_isi" name="edit_isi">{{ $post->isi }}</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="edit_icon">Pilih Ikon:</label>
+                        <label for="edit_icon">Pilih Ikon</label>
                         <select id="editIconSelector" class="form-control" name="edit_icon">
                             <option value="{{ $post->icon }}" selected disabled>{{ $post->icon }}</option>
                             <option value="bi-currency-exchange">bi-currency-exchange</option>

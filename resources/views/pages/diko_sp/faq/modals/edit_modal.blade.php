@@ -19,7 +19,7 @@
                     </div>
                     <div class="form-group">
                         <label for="edit_answer">Answer</label>
-                        <input type="text" class="form-control" id="edit_answer" name="edit_answer" value="{{ $post->answer }}">
+                        <textarea class="form-control" id="edit_answer" name="edit_answer">{{ $post->answer }}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

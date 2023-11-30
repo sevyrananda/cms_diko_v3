@@ -10,7 +10,7 @@ class CreatePricingSpTable extends Migration
     {
         Schema::create('pricing_sp', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_pricingsp', 100);
+            $table->string('nama_pricingsp', 255);
             $table->bigInteger('harga_pricingsp');
             $table->timestamps();
         });

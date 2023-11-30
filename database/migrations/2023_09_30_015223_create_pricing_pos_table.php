@@ -10,7 +10,7 @@ class CreatePricingPosTable extends Migration
     {
         Schema::create('pricing_pos', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_pricingpos', 100);
+            $table->string('nama_pricingpos', 255);
             $table->bigInteger('harga_pricingpos');
             $table->timestamps();
         });

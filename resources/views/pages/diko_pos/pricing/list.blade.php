@@ -15,113 +15,6 @@
                             </button>
                         </div>
                     @endif
-                    {{-- <div class="card">
-                        <div class="card-header">
-                            <h4>All Pricing POS</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="float-left">
-                                <!-- Button to trigger modal -->
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#createModal"><i class="fas fa-plus"></i>
-                                    Create New Pricing POS
-                                </button>
-                                <a href="{{ route('pospricing.previewalldata') }}" class="btn btn-success"> <i class="fas fa-eye"></i>
-                                    Preview in Website
-                                </a>
-                            </div>
-                            <div class="float-right">
-                                <form>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="clearfix mb-3"></div>
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama Pricing POS</th>
-                                            <th>Harga Pricing POS</th>
-                                            <th>Deskripsi Pricing POS</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $no = 1;
-                                        @endphp
-                                        @foreach ($pricings as $post)
-                                            <tr>
-                                                <td>{{ $no++ }}</td>
-                                                <td>{{ $post->nama_pricingpos }}</td>
-                                                <td>{{ $post->harga_pricingpos }}</td>
-                                                <td>
-                                                    <ul>
-                                                        @foreach($post->deskripsi as $deskripsi)
-                                                            <li>{{ $deskripsi->deskripsi }}</li>
-                                                        @endforeach
-                                                    </ul>
-                                                </td>
-                                                    <div class="d-flex justify-content">
-                                                        <a href="{{ route('pospricing.preview', ['id' => $post->id]) }}" class="btn btn-primary">Preview</a>
-                                                        <button type="submit" class="btn btn-warning"
-                                                            style="margin-left: 5px;" data-toggle="modal"
-                                                            data-target="#editModal{{ $post->id }}">Edit</button>
-                                                        <button type="button" class="btn btn-danger"
-                                                            style="margin-left: 5px;"
-                                                            onclick="deletePost({{ $post->id }}, '{{ $post->nama_pricingpos }}')">
-                                                            Delete
-                                                        </button>
-
-                                                        <!-- Formulir Penghapusan Tersembunyi -->
-                                                        <form id="delete-form-{{ $post->id }}"
-                                                            action="{{ route('pospricing.destroy', ['id' => $post->id]) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="float-right">
-                                <nav>
-                                    <ul class="pagination">
-                                        <li class="page-item disabled">
-                                            <a class="page-link" href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                        </li>
-                                        <li class="page-item active">
-                                            <a class="page-link" href="#">1</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">2</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">3</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div> --}}
 
                     {{-- Datatables --}}
                     <div class="card">
@@ -133,8 +26,6 @@
                                 data-target="#createModal"><i class="fas fa-plus"></i>
                                 Create New
                             </button>
-                            {{-- <a href="{{ route('pospricing.previewalldata') }}" class="btn btn-success"><i
-                                    class="fas fa-eye"></i>Preview</a> --}}
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -156,7 +47,7 @@
                                             <tr>
                                                 <td>{{ $no++ }}</td>
                                                 <td>{{ $p->nama_pricingpos }}</td>
-                                                <td>{{ $p->harga_pricingpos }}</td>
+                                                <td>{{ number_format($p->harga_pricingpos, 0, ',', '.') }}</td>
                                                 <td>
                                                     <ul>
                                                         @foreach($p->deskripsi as $deskripsi)
@@ -166,8 +57,8 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content">
-                                                        <a href="{{ route('pospricing.preview', ['id' => $p->id]) }}"
-                                                            class="btn btn-success">Preview</a>
+                                                        {{-- <a href="{{ route('pospricing.preview', ['id' => $p->id]) }}"
+                                                            class="btn btn-success">Preview</a> --}}
                                                         <button type="submit" class="btn btn-warning"
                                                             style="margin-left: 5px;" data-toggle="modal"
                                                             data-target="#editModal{{ $p->id }}">Edit</button>

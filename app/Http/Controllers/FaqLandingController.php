@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FaqLanding;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class FaqLandingController extends Controller
@@ -13,8 +14,9 @@ class FaqLandingController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $faq = FaqLanding::get();
-        return view('pages.landing.faq.list', compact('faq'));
+        return view('pages.landing.faq.list', compact('faq', 'user'));
     }
 
     /**
@@ -65,11 +67,6 @@ class FaqLandingController extends Controller
     {
         $faq = FaqLanding::find($id);
         return view('pages.landing.faq.preview', compact('faq'));
-    }
-    public function previewall()
-    {
-        $faq = FaqLanding::all();
-        return view('pages.landing.faq.previewall', compact('faq'));
     }
 
     /**

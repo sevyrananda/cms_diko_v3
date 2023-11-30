@@ -19,8 +19,9 @@
                     </div>
                     <div class="form-group">
                         <label for="answer">Answer</label>
-                        <input type="text" class="form-control" id="answer" name="answer" required>
+                        <textarea class="form-control" id="answer" name="answer" required></textarea>
                     </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Create FAQ</button>

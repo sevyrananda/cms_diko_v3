@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\PricingSp;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PricingSpController extends Controller
 {
     public function index()
     {
         $pricing = PricingSp::get();
-        return view('pages.diko_sp.pricing.list', compact('pricing'));
+        $user = Auth::user();
+        return view('pages.diko_sp.pricing.list', compact('pricing', 'user'));
     }
 
     public function store(Request $request)
@@ -46,12 +48,6 @@ class PricingSpController extends Controller
     {
         $pricing = PricingSp::find($id);
         return view('pages.diko_sp.pricing.preview', compact('pricing'));
-    }
-
-    public function previewalldata()
-    {
-        $pricing = PricingSp::all();
-        return view('pages.diko_sp.pricing.previewalldata', compact('pricing'));
     }
 
     public function edit($id) //kayany gak digunakan

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('fitur_sp2', function (Blueprint $table) {
             $table->id();
-            $table->string('icon2',100);
-            $table->string('judul_icon2',100);
+            $table->string('icon2',255);
+            $table->string('judul_icon2',255);
             $table->string('isi',500);
             $table->string('image')->nullable();
 

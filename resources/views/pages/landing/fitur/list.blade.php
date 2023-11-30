@@ -155,8 +155,8 @@
                                                     <td>{{ $post->icon }}</td>
                                                     <td>
                                                         <div class="d-flex justify-content">
-                                                            <a href="{{ route('landing.preview', ['id' => $post->id]) }}"
-                                                                class="btn btn-success">Preview</a>
+                                                            {{-- <a href="{{ route('landing.preview', ['id' => $post->id]) }}"
+                                                                class="btn btn-success">Preview</a> --}}
                                                             <button type="submit" class="btn btn-warning"
                                                                 style="margin-left: 5px;" data-toggle="modal"
                                                                 data-target="#editModal{{ $post->id }}">Edit</button>

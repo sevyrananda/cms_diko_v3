@@ -181,16 +181,8 @@
 
                                 <div class="pricing-header">
                                     <h3>{{ $post->nama_pricingsp }}</h3>
-                                    <h4><sup>Rp. </sup>{{ $post->harga_pricingsp }},-<span> / month</span></h4>
+                                    <h4><sup>Rp. </sup>{{ number_format($post->harga_pricingsp, 0, ',', '.') }},-<span> / month</span></h4>
                                 </div>
-
-                                {{-- <ul>
-                                    <li><i class="bi bi-dot"></i> <span>{!! $post->deskripsi_pricingsp !!}</span></li>
-                                    <li><i class="bi bi-dot"></i> <span>Nec feugiat nisl pretium</span></li>
-                                    <li><i class="bi bi-dot"></i> <span>Nulla at volutpat diam uteera</span></li>
-                                    <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
-                                    <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                                </ul> --}}
 
                                 <div>
                                     <ul>
@@ -223,236 +215,59 @@
                 }
             </style>
 
-            {{-- Route Modal Plugin --}}
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
-                    // Function to set the size of the logos
                     function setLogoSize(logoClass, width, height) {
-                        const logos = document.querySelectorAll(logoClass);
-                        logos.forEach((logo) => {
+                        document.querySelectorAll(logoClass).forEach((logo) => {
                             logo.style.width = width;
                             logo.style.height = height;
                         });
                     }
 
-                    // Set the size of the logos (you can adjust the width and height values)
                     setLogoSize(".small-logo", "100px", "100px");
                 });
 
-                // Function to display the modal with the specified content
                 function showModal(modalId) {
-                    var modal = new bootstrap.Modal(document.getElementById(modalId));
-                    modal.show();
+                    new bootstrap.Modal(document.getElementById(modalId)).show();
                 }
-
-                // Add click event listeners for each logo
-                // Logo 1 (Plugin Master Menu Bank & E-Commerce)
-                document.querySelector(".col-md-3.grid-item:nth-child(1)").addEventListener("click", function() {
-                    showModal("modal1");
-                });
-
-                // Logo 2 (Plugin Master Barcode Form Add)
-                document.querySelector(".col-md-3.grid-item:nth-child(2)").addEventListener("click", function() {
-                    showModal("modal2");
-                });
-
-                // Logo 3 (Plugin Master Golongan Jaminan)
-                document.querySelector(".col-md-3.grid-item:nth-child(3)").addEventListener("click", function() {
-                    showModal("modal3");
-                });
-
-                // Logo 4 (Plugin Master Kode Transaksi)
-                document.querySelector(".col-md-3.grid-item:nth-child(4)").addEventListener("click", function() {
-                    showModal("modal4");
-                });
-
-                // Logo 5 (Plugin Master Kode Transaksi)
-                document.querySelector(".col-md-3.grid-item:nth-child(5)").addEventListener("click", function() {
-                    showModal("modal5");
-                });
-
-                // Logo 6 (Plugin Master Kode Transaksi)
-                document.querySelector(".col-md-3.grid-item:nth-child(6)").addEventListener("click", function() {
-                    showModal("modal6");
-                });
-
-                // Logo 7 (Plugin Master Kode Transaksi)
-                document.querySelector(".col-md-3.grid-item:nth-child(7)").addEventListener("click", function() {
-                    showModal("modal7");
-                });
-
-                // Logo 8 (Plugin Master Kode Transaksi)
-                document.querySelector(".col-md-3.grid-item:nth-child(8)").addEventListener("click", function() {
-                    showModal("modal8");
-                });
 
                 function closeModal(modalId) {
-                    var modal = new bootstrap.Modal(document.getElementById(modalId));
-                    modal.hide();
+                    new bootstrap.Modal(document.getElementById(modalId)).hide();
                 }
+
+                @foreach ($posts as $index => $plug)
+                    const modalId{{ $index + 1 }} = `modal{{ $index + 1 }}`;
+                    const logoSelector{{ $index + 1 }} = `.col-md-3.grid-item:nth-child({{ $index + 1 }})`;
+
+                    document.querySelector(logoSelector{{ $index + 1 }}).addEventListener("click", function() {
+                        showModal(modalId{{ $index + 1 }});
+                    });
+                @endforeach
             </script>
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
             <!-- Modals Plugin-->
-            <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1Label"
-                aria-hidden="false">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modal1Label">Plugin Master Menu Bank & E-Commerce</h5>
-                            <button type="button" class="close" data-dismiss="modal" data-target="#modal1"
-                                aria-label="Close">
-                                <span aria-hidden="false">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Plugin ini mendukung berbagai bank dan penyedia layanan pembayaran, mencakup beragam opsi
-                                seperti kartu kredit, transfer bank, e-wallet, dan banyak lagi.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modal2Label"
-                aria-hidden="false">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modal2Label">Plugin Master Menu Barcode</h5>
-                            <button type="button" class="close" data-dismiss="modal" data-target="#modal1"
-                                aria-label="Close">
-                                <span aria-hidden="false">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Informasi yang ingin Anda tambahkan -->
-                            <p>Plugin ini juga dapat terintegrasi dengan sistem POS (Point of Sale) Anda, memberikan
-                                kemudahan dalam proses penjualan dan pencatatan data produk.</p>
+            @foreach ($posts as $index => $plug)
+                <div class="modal fade" id="modal{{ $index + 1 }}" tabindex="-1" role="dialog"
+                    aria-labelledby="modal{{ $index + 1 }}Label" aria-hidden="false">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modal{{ $index + 1 }}Label">{{ $plug->judul }}</h5>
+                                <button type="button" class="close" data-dismiss="modal"
+                                    data-target="#modal{{ $index + 1 }}" aria-label="Close">
+                                    <span aria-hidden="false">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>{{ $plug->isi }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="modal3Label"
-                aria-hidden="false">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modal3Label">Plugin Master Menu Golongan Pinjaman</h5>
-                            <button type="button" class="close" data-dismiss="modal" data-target="#modal3"
-                                aria-label="Close">
-                                <span aria-hidden="false">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Informasi yang ingin Anda tambahkan -->
-                            <p>Plugin ini memungkinkan pengguna untuk dengan mudah mengintegrasikan berbagai opsi pembayaran
-                                dari berbagai bank dan penyedia layanan pembayaran dalam satu menu yang terstruktur,
-                                memberikan pengalaman belanja yang lebih nyaman bagi pelanggan. </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="modal4Label"
-                aria-hidden="false">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modal4Label">Plugin Master Menu Kode Transaksi Pinjaman</h5>
-                            <button type="button" class="close" data-dismiss="modal" data-target="#kodenModal"
-                                aria-label="Close">
-                                <span aria-hidden="false">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Informasi yang ingin Anda tambahkan -->
-                            <p>Plugin ini juga memungkinkan Anda untuk dengan cepat mengidentifikasi dan membedakan berbagai
-                                jenis transaksi pinjaman, seperti pinjaman pribadi, hipotek, atau bisnis.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal fade" id="modal5" tabindex="-1" role="dialog" aria-labelledby="modal5Label"
-                aria-hidden="false">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modal5Label">Plugin 5</h5>
-                            <button type="button" class="close" data-dismiss="modal" data-target="#kodenModal"
-                                aria-label="Close">
-                                <span aria-hidden="false">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Informasi yang ingin Anda tambahkan -->
-                            <p>Plugin ini juga memungkinkan Anda untuk dengan cepat mengidentifikasi dan membedakan berbagai
-                                jenis transaksi pinjaman, seperti pinjaman pribadi, hipotek, atau bisnis.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="modal6Label"
-                aria-hidden="false">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modal6Label">Plugin 6</h5>
-                            <button type="button" class="close" data-dismiss="modal" data-target="#kodenModal"
-                                aria-label="Close">
-                                <span aria-hidden="false">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Informasi yang ingin Anda tambahkan -->
-                            <p>Plugin ini juga memungkinkan Anda untuk dengan cepat mengidentifikasi dan membedakan berbagai
-                                jenis transaksi pinjaman, seperti pinjaman pribadi, hipotek, atau bisnis.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal fade" id="modal7" tabindex="-1" role="dialog" aria-labelledby="modal7Label"
-                aria-hidden="false">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modal7Label">Plugin 7</h5>
-                            <button type="button" class="close" data-dismiss="modal" data-target="#kodenModal"
-                                aria-label="Close">
-                                <span aria-hidden="false">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Informasi yang ingin Anda tambahkan -->
-                            <p>Plugin ini juga memungkinkan Anda untuk dengan cepat mengidentifikasi dan membedakan berbagai
-                                jenis transaksi pinjaman, seperti pinjaman pribadi, hipotek, atau bisnis.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal fade" id="modal8" tabindex="-1" role="dialog" aria-labelledby="modal8Label"
-                aria-hidden="false">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modal8Label">Plugin 8</h5>
-                            <button type="button" class="close" data-dismiss="modal" data-target="#kodenModal"
-                                aria-label="Close">
-                                <span aria-hidden="false">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Informasi yang ingin Anda tambahkan -->
-                            <p>Plugin ini juga memungkinkan Anda untuk dengan cepat mengidentifikasi dan membedakan berbagai
-                                jenis transaksi pinjaman, seperti pinjaman pribadi, hipotek, atau bisnis.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
             <section id="plugin-menu" class="plugin-menu">
                 <div class="container" data-aos="fade-up">
@@ -461,19 +276,24 @@
                     </div>
 
                     <div id="carouselExample" class="carousel slide text-center" data-ride="carousel">
-                        <!-- Slide 1 -->
-                        <div class="carousel-item active">
-                            <div class="row">
-                                <!-- Loop through the logos for slide 1 -->
-                                @for ($i = 1; $i <= 4; $i++)
-                                    <div class="col-sm">
-                                        <img src="{{ url('HeroBiz') }}/assets/img/logo koperasi.png"
-                                            alt="Logo {{ $i }}" class="small-logo mx-auto p-2"
-                                            data-toggle="modal" data-target="#modal{{ $i }}">
-                                    </div>
-                                @endfor
+                        @php
+                            $totalPlugins = count($posts);
+                            $pluginsPerSlide = 4;
+                            $totalSlides = ceil($totalPlugins / $pluginsPerSlide);
+                        @endphp
 
-                                <!-- Carousel control buttons for slide 1 -->
+                        @for ($slide = 1; $slide <= $totalSlides; $slide++)
+                            <div class="carousel-item{{ $slide === 1 ? ' active' : '' }}">
+                                <div class="row">
+                                    @for ($index = 1 + $pluginsPerSlide * ($slide - 1); $index <= min($totalPlugins, $pluginsPerSlide * $slide); $index++)
+                                        <div class="col-sm">
+                                            <img src="{{ asset('storage/' . $posts[$index - 1]->image) }}" alt="Image"
+                                                style="max-width: 100px;" data-toggle="modal"
+                                                data-target="#modal{{ $index }}">
+                                        </div>
+                                    @endfor
+                                </div>
+
                                 <a class="carousel-control-prev" href="#carouselExample" role="button"
                                     data-slide="prev" style="color: black; left: -10%;">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"
@@ -485,36 +305,7 @@
                                         style="filter: invert(100%);"></span>
                                 </a>
                             </div>
-                        </div>
-
-                        <!-- Slide 2 -->
-                        <div class="carousel-item">
-                            <div class="row">
-                                <!-- Loop through the logos for slide 2 -->
-                                @for ($i = 9; $i <= 16; $i++)
-                                    <div class="col-sm">
-                                        <img src="{{ url('HeroBiz') }}/assets/img/logo koperasi.png"
-                                            alt="Logo {{ $i }}" class="small-logo mx-auto p-2"
-                                            data-toggle="modal" data-target="#modal{{ $i }}">
-                                    </div>
-                                @endfor
-
-                                <!-- Carousel control buttons for slide 2 -->
-                                <a class="carousel-control-prev" href="#carouselExample" role="button"
-                                    data-slide="prev" style="color: black; left: -10%;">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"
-                                        style="filter: invert(100%);"></span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselExample" role="button"
-                                    data-slide="next" style="color: black; right: -10%;">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"
-                                        style="filter: invert(100%);"></span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- ... Repeat for additional slides ... -->
-
+                        @endfor
                     </div>
                 </div>
             </section>
