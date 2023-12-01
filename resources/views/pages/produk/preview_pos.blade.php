@@ -79,7 +79,7 @@
                                     </p>
                                 </div>
                                 <div class="col-lg-2 order-1 text-center" data-aos="fade-up" data-aos-delay="200">
-                                    <img src="{{ asset('storage/' . $feature['image']) }}" alt=""
+                                    <img src="{{ route('image.displayImage' , $feature['image']) }}" alt=""
                                         class="img-fluid">
                                 </div>
                             </div>
@@ -104,9 +104,9 @@
                         <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="{{ $feature['delay'] }}">
                             <div class="service-item">
                                 <div class="img">
-                                    <a href="{{ asset('storage/' . $feature['image']) }}" data-gallery="fitur-gallery"
+                                    <a href="{{ route('image.displayImage' , $feature['image']) }}" data-gallery="fitur-gallery"
                                         class="glightbox preview-link">
-                                        <img src="{{ asset('storage/' . $feature['image']) }}" class="img-fluid"
+                                        <img src="{{ route('image.displayImage' , $feature['image']) }}" class="img-fluid"
                                             alt="">
                                     </a>
                                 </div>
@@ -312,7 +312,7 @@
                                 <div class="row">
                                     @for ($index = 1 + $pluginsPerSlide * ($slide - 1); $index <= min($totalPlugins, $pluginsPerSlide * $slide); $index++)
                                         <div class="col-sm">
-                                            <img src="{{ asset('storage/' . $posts[$index - 1]->image) }}" alt="Image"
+                                            <img src="{{ route('image.displayImage' , $posts[$index - 1]->image) }}" alt="Image"
                                                 style="max-width: 100px;" data-toggle="modal"
                                                 data-target="#modal{{ $index }}">
                                         </div>

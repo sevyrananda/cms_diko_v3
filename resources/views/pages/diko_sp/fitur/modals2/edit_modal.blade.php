@@ -38,7 +38,7 @@
                         <input type="file" class="form-control" id="edit_image" name="edit_image">
                         @if ($sp2->image)
                             <div style="display: flex; align-items: center;">
-                                <img src="{{ asset('storage/' . $sp2->image) }}" alt="Image" style="max-width: 100px; margin-right: 10px;">
+                                <img src="{{ route('image.displayImage' , $sp2->image) }}" alt="Image" style="max-width: 100px; margin-right: 10px;">
                                 <p>Nama File: {{ $sp2->image }}</p>
                             </div>
                         @else

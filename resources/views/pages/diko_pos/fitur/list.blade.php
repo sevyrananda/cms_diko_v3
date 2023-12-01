@@ -188,7 +188,7 @@
                                                     <td>{{ $pos->isi_detail }}</td>
                                                     <td>
                                                         @if ($pos->image)
-                                                            <img src="{{ asset('storage/' . $pos->image) }}" alt="Image"
+                                                            <img src="{{ route('image.displayImage' , $pos->image) }}" alt="Image"
                                                                 style="max-width: 100px;">
                                                         @else
                                                             No Image

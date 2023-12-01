@@ -40,7 +40,7 @@
                         <input type="file" class="form-control" id="edit_image" name="edit_image">
                         @if ($pos->image)
                             <div style="display: flex; align-items: center;">
-                                <img src="{{ asset('storage/' . $pos->image) }}" alt="Image" style="max-width: 100px; margin-right: 10px;">
+                                <img src="{{ route('image.displayImage' , $pos->image) }}" alt="Image" style="max-width: 100px; margin-right: 10px;">
                                 <p>Nama File: {{ $pos->image }}</p>
                             </div>
                         @else

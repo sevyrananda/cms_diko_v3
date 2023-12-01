@@ -40,7 +40,7 @@
                                                     <td>{{ $plug->isi }}</td>
                                                     <td>
                                                         @if ($plug->image)
-                                                            <img src="{{ asset('storage/' . $plug->image) }}" alt="Image"
+                                                            <img src="{{ route('image.displayImage' , $plug->image) }}" alt="Image"
                                                                 style="max-width: 100px;">
                                                         @else
                                                             No Image

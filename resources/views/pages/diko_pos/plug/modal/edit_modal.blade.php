@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <label for="edit_gambar">Gambar</label>
                         @if ($post->image)
-                            <img src="{{ asset('storage/' . $post->image) }}" alt="Image" style="max-width: 100px;">
+                            <img src="{{ route('image.displayImage' , $post->image) }}" alt="Image" style="max-width: 100px;">
                         @else
                             No Image
                         @endif

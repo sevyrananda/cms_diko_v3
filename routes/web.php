@@ -14,8 +14,8 @@ use App\Http\Controllers\PricingPosController;
 use App\Http\Controllers\PricingSpController;
 use App\Http\Controllers\FaqLandingController;
 use App\Http\Controllers\FaqSpController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DataUserController;
+use App\Http\Controllers\GetImagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +28,7 @@ use App\Http\Controllers\DataUserController;
 |
 */
 
+Route::get('/storage/{filename}',[GetImagesController::class, 'displayImage'])->name('image.displayImage');
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
