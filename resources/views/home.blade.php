@@ -55,9 +55,9 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                   <div class="card-content">
                     <h5 class="font-16">Akun yang sedang login</h5>
-                    <h2 class="text-muted font-16">Email : {{ $user->name }}</h2>
-                    <h2 class="text-muted font-16">Name : {{ $user->email }}</h2>
-                    <p class="text-muted font-14 m-b-0">Login Time: {{ $user->last_login }}</p>
+                    <h2 class="text-muted font-14">Email : {{ $user->name }}</h2>
+                    <h2 class="text-muted font-14">Name : {{ $user->email }}</h2>
+                    <p class="text-muted font-12 m-b-0">Login Time: {{ $user->last_login }}</p>
                   </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">

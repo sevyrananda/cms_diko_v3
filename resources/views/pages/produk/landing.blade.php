@@ -48,30 +48,27 @@
         </section><!-- End About Section -->
 
         <!-- ======= Counts Section ======= -->
-        <section id="counts" class="counts">
+        <section id="counts" class="counts" style="display: flex; align-items: center; justify-content: center;">
             <div class="container">
-
-                <div class="row counters">
-
+                <div class="row counters justify-content-center">
                     <div class="col-lg-4 col-7 text-center">
                         <span data-purecounter-start="0" data-purecounter-end="14800" data-purecounter-duration="1"
                             class="purecounter"></span>
                         <p>Pengusaha</p>
                     </div>
-
                     <div class="col-lg-4 col-7 text-center">
                         <span data-purecounter-start="0" data-purecounter-end="347" data-purecounter-duration="1"
                             class="purecounter"></span>
                         <p>Kota/Kabupaten</p>
                     </div>
-
                     <div class="col-lg-4 col-7 text-center">
                         <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1"
                             class="purecounter"></span>
                         <p>Bidang Usaha</p>
                     </div>
                 </div>
-        </section><!-- End Counts Section -->
+            </div>
+        </section>
 
         <!-- ======= Services Section ======= -->
         <section id="services" class="services section-bg">
@@ -236,19 +233,20 @@
                 <div class="faq-list">
                     <ul>
                         @foreach ($faq as $faqs)
-                        <li data-aos="fade-up" data-aos-delay="100">
-                            <i class="bx bx-help-circle icon-help"></i>
-                            <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-{{ $faqs->id }}">
-                                {{ $faqs->question }}
-                                <i class="bx bx-chevron-down icon-show"></i>
-                                <i class="bx bx-chevron-up icon-close"></i>
-                            </a>
-                            <div id="faq-list-{{ $faqs->id }}" class="collapse show" data-bs-parent=".faq-list">
-                                <p>
-                                    {{ $faqs->answer }}
-                                </p>
-                            </div>
-                        </li>
+                            <li data-aos="fade-up" data-aos-delay="100">
+                                <i class="bx bx-help-circle icon-help"></i>
+                                <a data-bs-toggle="collapse" class="collapse"
+                                    data-bs-target="#faq-list-{{ $faqs->id }}">
+                                    {{ $faqs->question }}
+                                    <i class="bx bx-chevron-down icon-show"></i>
+                                    <i class="bx bx-chevron-up icon-close"></i>
+                                </a>
+                                <div id="faq-list-{{ $faqs->id }}" class="collapse show" data-bs-parent=".faq-list">
+                                    <p>
+                                        {{ $faqs->answer }}
+                                    </p>
+                                </div>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
