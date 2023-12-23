@@ -12,7 +12,7 @@
                     <h2>Meningkatkan Efisiensi, Aksesibilitas, dan Keamanan Transaksi Koperasi</h2>
                 </div>
                 <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
-                    <img src="{{ url('Techie') }}/assets/img/landingg.png" class="img-fluid animated" alt="">
+                    <img src="{{ url('Techie') }}/assets/img/TRANS3.png" class="img-fluid animated" alt="">
                 </div>
             </div>
         </div>
@@ -32,15 +32,9 @@
                     <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="150">
                         <img src="{{ url('Techie') }}/assets/img/2.png" class="img-fluid" alt="">
                     </div>
-                    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
-                        <h3>Mudahkan Laporan Akuntansi Anda dengan</h3>
-                        <ul>
-                            <li><i class="bi bi-check-circle"></i>Akses yang mudah</li>
-                            <li><i class="bi bi-check-circle"></i>Biaya yang terjangkau</li>
-                            <li><i class="bi bi-check-circle"></i>Pengelolaan yang mudah</li>
-                            <li><i class="bi bi-check-circle"></i>Backup dan keamanan data</li>
-                        </ul>
-                        <a href="#" class="read-more">Read More <i class="bi bi-long-arrow-right"></i></a>
+                    <div class="col-lg-6 pt-4 pt-lg-0 mt-3 order-2 order-lg-1 content" data-aos="fade-right">
+                        <h3 class=" text-center">MOTTO</h3>
+                        <h5 class=" text-center">Membentuk Masa Depan Keuangan dengan DIKO SP <br> "Inovasi, Keunggulan, dan Optimalisasi"</h5>
                     </div>
                 </div>
 
@@ -75,7 +69,7 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>Lebih dari sekedar aplikasi pencatatan keuangan</h2>
+                    <h2>Fitur Laporan Akuntansi yang lengkap</h2>
                 </div>
 
                 <div class="row gy-4 justify-content-center">
@@ -106,30 +100,38 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>Motto</h2>
+                    <h2>Permudah Laporan Akuntansi Anda</h2>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column align-items-lg-center">
                         <div class="icon-box mt-5 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
-                            <i class="bx bx-receipt"></i>
-                            <h4>Percayakan tugas Anda kepada tim Kami</h4>
-                            <p>Serahkan kegiatan Administrasi pada tim dan Anda dapat fokus mengembangkan bisnis. Dengan
-                                akses multi-user, Anda dapat membagi tugas kepada anggota tim sesuai dengan kebutuhan.</p>
+                            <i class="bx bx-devices"></i>
+                            <h4>Multi Platform</h4>
+                            <p>
+                                Aplikasi ini dirancang untuk dapat diakses dan digunakan melalui berbagai platform, seperti perangkat seluler, tablet, dan komputer desktop (Windows maupun Linux), sehingga memberikan pengguna pengalaman multi platform yang seamless
+                            </p>
                         </div>
                         <div class="icon-box mt-5" data-aos="fade-up" data-aos-delay="200">
-                            <i class="bx bx-cube-alt"></i>
-                            <h4>Kerja tanpa batasan ruang</h4>
-                            <p>Selesaikan pekerjaan Anda dari mana saja untuk memberikan hasil kerja yang lebih efisien
-                                seperti membuat faktur penjualan dan pembelian, cek stok barang, hingga, persetujuan
-                                transaksi.</p>
+                            <i class="bx bx-wallet"></i>
+                            <h4>Biaya yang terjangkau</h4>
+                            <p>
+                                Meskipun memiliki fitur canggih, produk ini tetap menawarkan biaya yang terjangkau, membuatnya menjadi pilihan yang ekonomis bagi Bisnis Anda
+                            </p>
                         </div>
                         <div class="icon-box mt-5" data-aos="fade-up" data-aos-delay="300">
-                            <i class="bx bx-images"></i>
-                            <h4>Lihat laporan keuangan setiap saat</h4>
-                            <p>Kini Anda tidak perlu menunggu hingga akhir bulan untuk mengetahui kondisi keuangan
-                                perusahaan. Lakukan analisa dan pengambilan keputusan lebih cepat untuk kemajuan bisnis
-                                Anda.</p>
+                            <i class="bx bx-user-pin"></i>
+                            <h4>User Friendly</h4>
+                            <p>
+                                Antarmuka pengguna pada aplikasi ini sangat user-friendly, memudahkan pengguna untuk menjelajahi fitur-fitur dengan intuitif dan efisien, bahkan bagi mereka yang baru pertama kali menggunakannya.
+                            </p>
+                        </div>
+                        <div class="icon-box mt-5" data-aos="fade-up" data-aos-delay="400">
+                            <i class="bx bx-check-shield"></i>
+                            <h4>Backup dan Keamanan Data terjamin</h4>
+                            <p>
+                                Keamanan informasi Anda dapat kami jamin dengan baik. Selain itu, kami juga memastikan bahwa Anda memiliki salinan cadangan yang dapat dipercaya untuk melindungi data penting dari potensi kehilangan atau kerusakan.
+                            </p>
                         </div>
                     </div>
                     <div class="image col-lg-6 order-1 order-lg-2 " data-aos="zoom-in" data-aos-delay="100">
@@ -139,13 +141,111 @@
             </div>
         </section><!-- End Features Section -->
 
-        <section id="features" class="features">
+        <!-- ======= Portfolio Section ======= -->
+        <section id="portfolio" class="portfolio">
+            <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Kelola aktivitas koperasi Anda secara menyeluruh</h2>
+                {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
+            </div>
+
+            {{-- <div class="row">
+                <div class="col-lg-12 d-flex justify-content-center">
+                <ul id="portfolio-flters">
+                    <li data-filter="*" class="filter-active">All</li>
+                    <li data-filter=".filter-app">App</li>
+                    <li data-filter=".filter-card">Card</li>
+                    <li data-filter=".filter-web">Web</li>
+                </ul>
+                </div>
+            </div> --}}
+
+            <div class="row portfolio-container">
+
+                <div class="col-lg-3 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="{{ url('Techie') }}/assets/img/landingbaru.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            {{-- <h4>App 1</h4>
+                            <p>App</p> --}}
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="{{ url('Techie') }}/assets/img/landingbaru.png" data-gallery="portfolioGallery" class="portfolio-lightbox"><i class="bx bx-plus"></i></a>
+                            {{-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> --}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="{{ url('Techie') }}/assets/img/landingbaru.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            {{-- <h4>App 1</h4>
+                            <p>App</p> --}}
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="{{ url('Techie') }}/assets/img/landingbaru.png" data-gallery="portfolioGallery" class="portfolio-lightbox"><i class="bx bx-plus"></i></a>
+                            {{-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> --}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="{{ url('Techie') }}/assets/img/landingbaru.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            {{-- <h4>App 1</h4>
+                            <p>App</p> --}}
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="{{ url('Techie') }}/assets/img/landingbaru.png" data-gallery="portfolioGallery" class="portfolio-lightbox"><i class="bx bx-plus"></i></a>
+                            {{-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> --}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="{{ url('Techie') }}/assets/img/landingbaru.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            {{-- <h4>App 1</h4>
+                            <p>App</p> --}}
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="{{ url('Techie') }}/assets/img/landingbaru.png" data-gallery="portfolioGallery" class="portfolio-lightbox"><i class="bx bx-plus"></i></a>
+                            {{-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> --}}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            </div>
+        </section><!-- End Portfolio Section -->
+
+        {{-- <section id="features" class="features">
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
                     <h2>Kelola aktivitas koperasi Anda secara menyeluruh</h2>
                 </div>
                 <div class="row">
-                    <div class="col-lg-15" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="clickable-content" onclick="toggleContent()">
+                            <img src="{{ url('Techie') }}/assets/img/landingbaru.png" alt="Clickable Image"
+                                class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="clickable-content" onclick="toggleContent()">
+                            <img src="{{ url('Techie') }}/assets/img/landingbaru.png" alt="Clickable Image"
+                                class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="clickable-content" onclick="toggleContent()">
+                            <img src="{{ url('Techie') }}/assets/img/landingbaru.png" alt="Clickable Image"
+                                class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="400">
                         <div class="clickable-content" onclick="toggleContent()">
                             <img src="{{ url('Techie') }}/assets/img/landingbaru.png" alt="Clickable Image"
                                 class="img-fluid">
@@ -153,7 +253,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
 
         <!-- ======= Testimonials Section ======= -->
@@ -241,7 +341,7 @@
                                     <i class="bx bx-chevron-down icon-show"></i>
                                     <i class="bx bx-chevron-up icon-close"></i>
                                 </a>
-                                <div id="faq-list-{{ $faqs->id }}" class="collapse show" data-bs-parent=".faq-list">
+                                <div id="faq-list-{{ $faqs->id }}" class="collapse" data-bs-parent=".faq-list">
                                     <p>
                                         {{ $faqs->answer }}
                                     </p>

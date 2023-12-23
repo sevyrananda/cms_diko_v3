@@ -35,6 +35,7 @@ Route::post('/register', [AuthController::class, 'registerPost'])->name('registe
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
 Route::get('/', [ProdukController::class, 'landing'])->name('pagelanding.preview');
+Route::get('/perusahaan', [ProdukController::class, 'perusahaan'])->name('perusahaan');
 Route::get('/produk/preview/{id}/{selection}', [ProdukController::class, 'preview'])->name('produk.preview');
 
 Route::middleware(['auth'])->group(function () {

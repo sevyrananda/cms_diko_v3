@@ -19,6 +19,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ProdukController extends Controller
 {
+    public function perusahaan()
+    {
+        $products = Produk::get();
+        return view('pages.produk.perusahaan', compact('products'));
+    }
     public function index()
     {
         $products = Produk::get();
@@ -65,6 +70,7 @@ class ProdukController extends Controller
 
     public function preview($id, $selection)
     {
+        $products = Produk::get();
         $product = Produk::find($id);
         $pricing = PricingSp::all();
         $pricings = PricingPos::all();
@@ -74,12 +80,12 @@ class ProdukController extends Controller
             $pos = FiturPos::all();
             $pos2 = FiturPos2::all();
             $posts = PluginPos::all();
-            return view('pages.produk.preview_pos', compact('product', 'pos', 'pos2', 'pricings', 'posts'));
+            return view('pages.produk.preview_pos', compact('products', 'product', 'pos', 'pos2', 'pricings', 'posts'));
         } elseif ($selection === 'preview_sp') {
             $sp = FiturSp::all();
             $sp2 = FiturSp2::all();
             $posts = PluginSp::all();
-            return view('pages.produk.preview_sp', compact('product', 'sp', 'sp2', 'pricing', 'faq', 'posts'));
+            return view('pages.produk.preview_sp', compact('products', 'product', 'sp', 'sp2', 'pricing', 'faq', 'posts'));
         }
 
         return redirect('/produk')->with('success', 'Invalid selection.');

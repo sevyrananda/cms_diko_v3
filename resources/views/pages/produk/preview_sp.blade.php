@@ -1,17 +1,17 @@
 @extends('layout3.app')
 @section('content')
     <!-- ======= Hero Section ======= -->
-    <section id="hero-animated" class="hero-animated d-flex align-items-center" style="background-color:#C3E2FF;">
+    <section id="hero-animated" class="hero-animated d-flex align-items-center" style="background-color:#003152;">
         <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative"
             data-aos="zoom-out" style="color : #144B9A;">
             <!-- <img src="assets/img/hero-carousel/hero-carousel-3.svg" class="img-fluid animated"> -->
             <p style="font-size: 15px; font-stretch: expanded;">
 
             </p>
-            <p style="font-size: 45px; font-weight: bold; ">
-                Solusi terbaik untuk manajemen keuangan bisnis Anda.</p>
+            <p style="font-size: 40px; font-weight: bold; ">
+                Penggabungan Teknologis dari Inventori, Proyek, dan Penggajian</p>
             <p style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 20px;">Integrasi canggih: Inventori,
-                Proyek, dan Penggajian, semua dalam satu solusi andal!</p>
+                Semua dalam Satu Solusi untuk Anda!</p>
             <div class="d-flex">
                 <a href="#about" class="btn-get-started scrollto">Get Started</a>
                 <a href="https://youtu.be/4ZoWQeCO0CI" class="glightbox btn-watch-video d-flex align-items-center"><i
@@ -39,9 +39,7 @@
                                 <!-- <i class="bi bi-activity icon"></i> -->
                             </div>
                             <!-- <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4> -->
-                            <p style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Pengelolaan keuangan menjadi lebih
-                                efisien
-                                dan tertib</p>
+                            <p style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Meningkatkan Efisiensi Operasional Koperasi dengan Proses Otomatisasi yang dihadirkan DIKO</p>
                         </div>
                     </div><!-- End Service Item -->
 
@@ -52,9 +50,7 @@
                                     height="45">
                                 <!-- <i class="bi bi-bounding-box-circles icon"></i> -->
                             </div>
-                            <p style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Solusi terpadu untuk mengelola
-                                jaringan
-                                cabang</p>
+                            <p style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Solusi Terpadu untuk Pengelolaan Jaringan Cabang Bisnis Anda</p>
                         </div>
                     </div><!-- End Service Item -->
 
@@ -66,9 +62,7 @@
                                 <!-- <i class="bi bi-calendar4-week icon"></i> -->
                             </div>
                             <!-- <h4><a href="" class="stretched-link">Magni Dolores</a></h4> -->
-                            <p style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Proses transaksi bisnis lebih
-                                lancar dan
-                                instan</p>
+                            <p style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Dengan fitur keamanan yang canggih, DIKO mampu melindungi data koperasi</p>
                         </div>
                     </div><!-- End Service Item -->
 
@@ -80,8 +74,7 @@
                                     height="45">
                             </div>
                             <!-- <h4><a href="" class="stretched-link">Nemo Enim</a></h4> -->
-                            <p style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Nikmati kemudahan akses melalui
-                                semua perangkat</p>
+                            <p style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Dengan pemrosesan yang lebih cepat dan lebih efisien, koperasi dapat memberikan layanan pelanggan yang lebih baik</p>
                         </div>
                     </div><!--End Service Item-->
                 </div>
@@ -350,7 +343,7 @@
         </section>
 
         <!-- ======= 2 Card Section ======= -->
-        <section id="card-section" class="card-section" style="background-color: #C3E2FF;">
+        {{-- <section id="card-section" class="card-section" style="background-color: #003152;">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6">
@@ -394,7 +387,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
@@ -403,7 +396,7 @@
                     <div class="col-lg-6">
                         <div class="map">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.428402113363!2d111.54006207413555!3d-7.6369929755328085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e79bf36978c3bf3%3A0x8c1997902afb269f!2sDIKO!5e0!3m2!1sid!2sid!4v1690605880803!5m2!1sid!2sid"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.444107472913!2d111.5406524!3d-7.6352957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e79be937b126945%3A0x2ac1b7fffe7bacff!2sBRI%20Unit%20Bale%20Lintang!5e0!3m2!1sid!2sid!4v1703229139201!5m2!1sid!2sid"
                                 width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade">
                             </iframe>
@@ -419,10 +412,9 @@
                                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                                 <div>
                                     <h4>Alamat:</h4>
-                                    <p>Office : JL. Bulu Mas II No. 1 - Kanigoro - Kota Madiun - Jawa Timur<br>
-                                        <br>Branch Office : Perum Griya Gadang Sejahtera Kav. 14 Gadang - Sukun - Kota
-                                        Malang - Jawa Timur
-                                    </p>
+                                    <p>Ruko Balelintang no. 2, Jl. Letkol Suwarno,
+                                        Kota Madiun<br>
+                                        Jawa Timur<br></p>
                                 </div>
                             </div><!-- End Info Item -->
 
@@ -430,15 +422,14 @@
                                 <i class="bi bi-envelope flex-shrink-0"></i>
                                 <div>
                                     <h4>Alamat Email:</h4>
-                                    <p>cs@diko.co.id</p>
+                                    <p>diko.co.id@gmail.com</p>
                                 </div>
                             </div><!-- End Info Item -->
                             <div class="info-item d-flex">
                                 <i class="bi bi-phone flex-shrink-0"></i>
                                 <div>
                                     <h4>Nomor Telepon:</h4>
-                                    <p>HP : 0811-3636-09 <br>
-                                        Hotline : (0351) 2812555 </p>
+                                    <p>HP : -</p>
                                 </div>
                             </div><!-- End Info Item -->
                         </div>

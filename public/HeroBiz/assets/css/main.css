@@ -273,12 +273,12 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Desktop Navigation 
+# Desktop Navigation
 --------------------------------------------------------------*/
 @media (min-width: 1280px) {
   .navbar {
     padding: 0;
-    position: relative;  
+    position: relative;
     background-color: transparent;
   }
 
@@ -304,10 +304,12 @@ section {
     align-items: center;
     justify-content: space-between;
     padding: 14px 20px;
-    font-family: var(--font-secondary);
+    font-family: white;
+    /* font-family: var(--font-secondary); */
     font-size: 16px;
     font-weight: 400;
-    color: rgba(var(--color-secondary-dark-rgb), 0.7);
+    color: white;
+    /* color: rgba(var(--color-secondary-dark-rgb), 0.7); */
     white-space: nowrap;
     transition: 0.3s;
     position: relative;

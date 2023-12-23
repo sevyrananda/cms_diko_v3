@@ -13,8 +13,11 @@
       <div class="col-lg-2 col-md-6 footer-links">
         <h4>Produk</h4>
         <ul>
-          <li><a href="">DIKO SP</a></li>
-          <li><a href="">DIKO Pos</a></li>
+            @foreach ($products as $product)
+                <li><a href="{{ route('produk.preview', ['id' => $product->id, 'selection' => $product->preview_selection]) }}">DIKO {{ $product->nama_produk }}</a></li>
+            @endforeach
+          {{-- <li><a href="">DIKO SP</a></li>
+          <li><a href="">DIKO Pos</a></li> --}}
           <li>
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_of_Ministry_of_Communication_and_Information_Technology_of_the_Republic_of_Indonesia.svg/2060px-Logo_of_Ministry_of_Communication_and_Information_Technology_of_the_Republic_of_Indonesia.svg.png"
@@ -44,22 +47,20 @@
       <div class="col-lg-3 col-md-6 footer-links">
         <h4>Tentang DIKO</h4>
         <ul>
-          <li><a href="#">Perusahaan</a></li>
-          <li><a href="#">Partner Resmi</a></li>
+          <li><a href="{{ route('perusahaan') }}">Perusahaan</a></li>
+          {{-- <li><a href="#">Partner Resmi</a></li> --}}
         </ul>
       </div>
 
       <div class="col-lg-4 col-md-6 footer-newsletter">
         <h4>Hubungi Kami</h4>
         <p>
-            <strong>Office:</strong> Margatama Asri IV No. 3 <br>
-            Kota Madiun - Jawa Timur<br>
-            <strong> Branch Office:</strong> Perum Griya Gadang Sejahtera Kav. 14<br>
-            Gadang - Sukun - Kota Malang - Jawa Timur<br><br>
-            <strong>TELP:</strong> 0811-3636-09<br>
-            <strong>Hotline:</strong> (0351) 2812555<br>
-            <strong>Email:</strong> cs@diko.co.id<br>
-          </p>
+          <strong>Office:</strong> Ruko Balelintang no. 2, Jl. Letkol Suwarno<br>
+          Kota Madiun<br>
+          Jawa Timur<br><br>
+          <strong>Phone:</strong> - <br>
+          <strong>Email:</strong> diko.co.id@gmail.com<br>
+        </p>
       </div>
     </div>
   </div>
@@ -71,7 +72,7 @@
 
     <div class="d-flex flex-column align-items-center align-items-lg-start">
       <div class="copyright">
-        &copy; Copyright <strong><span>Diko</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>DIKO</span></strong>. All Rights Reserved
       </div>
     </div>
 
